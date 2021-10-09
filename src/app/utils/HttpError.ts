@@ -1,13 +1,14 @@
 /* eslint-disable no-console */
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiResponse } from 'next';
 
-class HttpError extends Error {
-  constructor(code: number, message: string) {
-    super(JSON.stringify({ code, message, error: true }));
+class HttpError<T = any> extends Error {
+  constructor(code: number, message: string, payload?: T) {
+    const responseError = { code, message, error: true, payload };
+    super(JSON.stringify(responseError));
     Object.setPrototypeOf(this, this.constructor.prototype);
   }
 
-  public static handle(req: NextApiRequest, res: NextApiResponse, err: Error|unknown) {
+  public static handle(res: NextApiResponse, err: Error|unknown) {
     if (err instanceof this) {
       const error = JSON.parse(err.message);
       console.error(error);
@@ -16,7 +17,7 @@ class HttpError extends Error {
     console.error(err);
     return res.status(500).send({
       code: 500,
-      message: `Internal server error!`,
+      message: 'Internal server error.',
       error: true
     });
   }

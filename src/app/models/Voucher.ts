@@ -1,9 +1,9 @@
-/* eslint-disable no-console */
 import Model from './Model';
 
 export interface VoucherFields<T = string|number> {
   readonly _id?: T
-  nama: string
+  name: string
+  expires: string
 }
 
 class VoucherModel extends Model<VoucherFields> {

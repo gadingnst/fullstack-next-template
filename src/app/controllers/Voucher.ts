@@ -1,0 +1,44 @@
+import type { NextApiRequest, NextApiResponse } from 'next';
+import Controller from './Controller';
+import Voucher from 'app/models/Voucher';
+
+class VoucherController extends Controller {
+  /*
+    Use arrow function to create Controller method.
+    if you want to know the reason is, please read: https://www.geeksforgeeks.org/arrow-functions-in-javascript/
+  */
+
+  public index = async (req: NextApiRequest, res: NextApiResponse) => {
+    try {
+      const payload = await Voucher.all();
+      this.sendJSON(res, {
+        code: 200,
+        message: 'Success get all Vouchers.',
+        payload
+      });
+    } catch (err) {
+      this.handleError(res, err);
+    }
+  }
+
+  public insert = async (req: NextApiRequest, res: NextApiResponse) => {
+    const { body } = req;
+    const { name, expires } = body;
+    try {
+      if (name && body) {
+        const response = await Voucher.insert({ name, expires });
+        this.sendJSON(res, {
+          code: 201,
+          message: 'Success add Voucher.',
+          payload: response
+        });
+      } else {
+        this.setError(400, '"name" and "expires" is required.');
+      }
+    } catch (err) {
+      this.handleError(res, err);
+    }
+  }
+}
+
+export default new VoucherController();

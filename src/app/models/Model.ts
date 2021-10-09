@@ -8,7 +8,8 @@ import {
   IS_PRODUCTION
 } from 'utils/config';
 
-const MONGODB_URI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`;
+const MONGODB_URI =
+  `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`;
 
 abstract class Model<T> {
   protected abstract collectionName: string

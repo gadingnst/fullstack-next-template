@@ -21,6 +21,13 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
+        <p className={styles.description}>
+          Visit the demo API{' '}
+          <a href="/api/voucher">
+            <code className={styles.code}>/api/voucher</code>
+          </a>
+        </p>
+
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
