@@ -41,62 +41,37 @@ abstract class Model<T> {
   }
 
   public async all(): Promise<T[]> {
-    try {
-      const collection = await this.connect();
-      const data = await collection.find().toArray();
-      return data as T[];
-    } catch (err) {
-      console.error(err);
-      throw err;
-    }
+    const collection = await this.connect();
+    const data = await collection.find().toArray();
+    return data as T[];
   }
 
   public async insert(data: T) {
-    try {
-      const collection = await this.connect();
-      const insert = await collection.insertOne(data);
-      return insert;
-    } catch (err) {
-      console.error(err);
-      throw err;
-    }
+    const collection = await this.connect();
+    const insert = await collection.insertOne(data);
+    return insert;
   }
 
   public async getById(id: number|string): Promise<T> {
-    try {
-      const collection = await this.connect();
-      const data = await collection.findOne({ _id: new ObjectId(id) });
-      return data as T;
-    } catch (err) {
-      console.error(err);
-      throw err;
-    }
+    const collection = await this.connect();
+    const data = await collection.findOne({ _id: new ObjectId(id) });
+    return data as T;
   }
 
   public async updateById(id: number|string|ObjectId, data: Partial<T>) {
-    try {
-      const collection = await this.connect();
-      const result = await collection.updateOne(
-        { _id: new ObjectId(id) },
-        { $set: data },
-        { upsert: true }
-      );
-      return result;
-    } catch (err) {
-      console.error(err);
-      throw err;
-    }
+    const collection = await this.connect();
+    const result = await collection.updateOne(
+      { _id: new ObjectId(id) },
+      { $set: data },
+      { upsert: true }
+    );
+    return result;
   }
 
   public async deleteById(id: number|string|ObjectId) {
-    try {
-      const collection = await this.connect();
-      const result = await collection.deleteOne({ _id: new ObjectId(id) });
-      return result;
-    } catch (err) {
-      console.error(err);
-      throw err;
-    }
+    const collection = await this.connect();
+    const result = await collection.deleteOne({ _id: new ObjectId(id) });
+    return result;
   }
 }
 
