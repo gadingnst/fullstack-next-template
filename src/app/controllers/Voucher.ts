@@ -22,15 +22,14 @@ class VoucherController extends Controller {
   }
 
   public insert = async (req: NextApiRequest, res: NextApiResponse) => {
-    const { body } = req;
-    const { name, expires } = body;
+    const { name, expires } = req.body;
     try {
-      if (name && body) {
-        const response = await Voucher.insert({ name, expires });
+      if (name && expires) {
+        const payload = await Voucher.insert({ name, expires });
         this.sendJSON(res, {
           code: 201,
           message: 'Success add Voucher.',
-          payload: response
+          payload
         });
       } else {
         this.setError(400, '"name" and "expires" is required.');

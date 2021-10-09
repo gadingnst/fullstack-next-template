@@ -15,7 +15,7 @@ const withMethod = (handlers: MethodModel) => (req: NextApiRequest, res: NextApi
   res.setHeader('Allow', Object.keys(handlers));
   return res.status(405).send({
     code: 405,
-    message: 'Method not allowed.',
+    message: `Method "${method}" not allowed.`,
     error: true
   });
 };
