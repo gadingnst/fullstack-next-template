@@ -17,11 +17,6 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <p className={styles.description}>
           Visit the demo API{' '}
           <a href="/api/voucher">
             <code className={styles.code}>/api/voucher</code>
