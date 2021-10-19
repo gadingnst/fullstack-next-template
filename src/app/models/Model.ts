@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { Collection, MongoClient, Document, ObjectId } from 'mongodb';
+import { Collection, MongoClient, Document, ObjectId, Db } from 'mongodb';
 import {
   DB_HOST,
   DB_USER,
@@ -14,9 +14,9 @@ const MONGODB_URI =
 abstract class Model<T> {
   protected abstract collectionName: string
 
-  protected connect() {
+  protected async connect(): Promise<Collection<Document>> {
     const client = new MongoClient(MONGODB_URI);
-    let db: Promise<Collection<Document>>;
+    let db: Db;
     if (!IS_PRODUCTION) {
       /*
         This comments copied from: https://github.com/vercel/next.js/blob/canary/examples/with-mongodb/lib/mongodb.js
@@ -24,20 +24,20 @@ abstract class Model<T> {
         is preserved across module reloads caused by HMR (Hot Module Replacement).
       */
       if (!global._db) {
-        global._db = client.connect()
+        global._db = await client.connect()
           .then(() => (
-            client.db(DB_NAME).collection(this.collectionName)
+            client.db(DB_NAME)
           ));
       }
       db = global._db;
     } else {
       // In production mode, it's best to not use a global variable.
-      db = client.connect()
+      db = await client.connect()
         .then(() => (
-          client.db(DB_NAME).collection(this.collectionName)
+          client.db(DB_NAME)
         ));
     }
-    return db;
+    return db.collection(this.collectionName);
   }
 
   public async all(): Promise<T[]> {
