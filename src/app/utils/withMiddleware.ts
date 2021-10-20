@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { MethodHandler } from './withMethod';
 
-export type MiddlewareHandler = (req: NextApiRequest, res: NextApiResponse, next: () => void) => void
+export type NextFunction = () => void
+export type MiddlewareHandler = (req: NextApiRequest, res: NextApiResponse, next: NextFunction) => void
 
 const withMiddleware = (handler: MiddlewareHandler) =>
   (next: MethodHandler) =>
