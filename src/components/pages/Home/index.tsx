@@ -1,8 +1,17 @@
+/* eslint-disable no-console */
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import styles from './styles.module.css';
 
 export default function Home() {
+  useEffect(() => {
+    fetch('/api/voucher')
+      .then(response => response.json())
+      .then(console.log);
+  }, []);
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -15,6 +24,10 @@ export default function Home() {
           <Link href="/api/voucher">
             <code className={styles.code}>/api/voucher</code>
           </Link>
+        </p>
+
+        <p className="text-sm text-slate-400 mt-5">
+          See browser console if you want to see the data returned from the API.
         </p>
 
         <div className={styles.grid}>

@@ -68,6 +68,7 @@
   font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
+  @apply cursor-pointer transition-colors duration-200 hover:bg-sky-400;
 }
 
 .grid {
