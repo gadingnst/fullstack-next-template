@@ -1,10 +1,8 @@
+process.env;
+
 export const {
-  NODE_ENV = 'production',
-  DB_HOST,
-  DB_USER,
-  DB_PASSWORD,
-  DB_NAME,
-  SECRET_APP_KEY
+  NODE_ENV = 'production'
 } = process.env;
 
-export const IS_PRODUCTION = NODE_ENV === 'production';
+export const IS_DEV = NODE_ENV !== 'production';
+export const SITE_NAME = 'Fullstack Next.js Template';

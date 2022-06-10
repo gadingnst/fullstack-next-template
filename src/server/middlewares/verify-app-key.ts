@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { NextFunction } from 'app/utils/withMiddleware';
-import { SECRET_APP_KEY } from 'utils/config';
+import type { NextFunction } from '@/server/utils/with-middleware';
+import { SECRET_APP_KEY } from '@/server/utils/config';
 
 const verifyAppKey = (req: NextApiRequest, res: NextApiResponse, next: NextFunction) => {
   const { key } = req.query;

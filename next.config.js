@@ -1,8 +1,11 @@
-/* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/no-var-requires */
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
+  dir: './src',
   webpack5: true,
+  pageExtensions: ['ts', 'tsx'],
+  images: {
+    minimumCacheTTL: 60 * 60 * 24
+  },
   headers: () => {
     return [
       {

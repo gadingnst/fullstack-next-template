@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-export type HttpMethods = 'GET'|'POST'|'PUT'|'DELETE'|'PATCH'
-export type MethodHandler = (req: NextApiRequest, res: NextApiResponse) => void
+export type HttpMethods = 'GET'|'POST'|'PUT'|'DELETE'|'PATCH';
+export type MethodHandler = (req: NextApiRequest, res: NextApiResponse) => void;
 export type MethodModel = {
   [key in HttpMethods]?: MethodHandler
-}
+};
 
 const withMethod = (handlers: MethodModel) => (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;

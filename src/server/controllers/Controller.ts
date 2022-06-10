@@ -1,11 +1,12 @@
+
 import type { NextApiResponse } from 'next';
-import HttpError from 'app/utils/HttpError';
+import HttpError from '@/server/lib/HttpError';
 
 export interface HttpResponse<T> {
-  code: number
-  message: string
-  error?: boolean
-  payload?: T
+  code: number;
+  message: string;
+  error?: boolean;
+  payload?: T;
 }
 
 abstract class Controller {

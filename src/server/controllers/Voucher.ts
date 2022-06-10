@@ -1,14 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Controller from './Controller';
-import Voucher from 'app/models/Voucher';
+import Voucher from '@/server/models/Voucher';
 
 class VoucherController extends Controller {
-  /*
-    Use arrow function to create Controller method.
-    if you want to know the reason is, please read: https://www.geeksforgeeks.org/arrow-functions-in-javascript/
-  */
-
-  public index = async (req: NextApiRequest, res: NextApiResponse) => {
+  /**
+   * Use arrow function to create Controller method.
+   * @see https://www.geeksforgeeks.org/arrow-functions-in-javascript/
+   * @param req NextApiRequest
+   * @param res NextApiResponse
+   */
+  public index = async(req: NextApiRequest, res: NextApiResponse) => {
     try {
       const payload = await Voucher.all();
       this.sendJSON(res, {
@@ -19,9 +20,9 @@ class VoucherController extends Controller {
     } catch (err) {
       this.handleError(res, err);
     }
-  }
+  };
 
-  public insert = async (req: NextApiRequest, res: NextApiResponse) => {
+  public insert = async(req: NextApiRequest, res: NextApiResponse) => {
     const { name, expires } = req.body;
     try {
       if (name && expires) {
@@ -37,7 +38,7 @@ class VoucherController extends Controller {
     } catch (err) {
       this.handleError(res, err);
     }
-  }
+  };
 }
 
 export default new VoucherController();

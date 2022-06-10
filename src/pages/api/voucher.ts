@@ -1,8 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import VoucherController from 'app/controllers/Voucher';
-import verifyAppKey from 'app/middlewares/verifyAppKey';
-import withMethod from 'app/utils/withMethod';
-import withMiddleware from 'app/utils/withMiddleware';
+
+import VoucherController from '@/server/controllers/Voucher';
+import verifyAppKey from '@/server/middlewares/verify-app-key';
+import withMethod from '@/server/utils/with-method';
+import withMiddleware from '@/server/utils/with-middleware';
 
 const withVerifyAppKey = withMiddleware(verifyAppKey);
 
