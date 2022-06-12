@@ -1,8 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import type { NextFunction } from '@/server/utils/with-middleware';
+import withMiddleware from '@/server/utils/with-middleware';
 import { SECRET_APP_KEY } from '@/server/utils/config';
 
-const verifyAppKey = (req: NextApiRequest, res: NextApiResponse, next: NextFunction) => {
+/**
+ * create custom middleware with `withMiddleware HoF`
+ */
+const withVerifyAppKey = withMiddleware((req, res, next) => {
   const { key } = req.query;
   if (key === SECRET_APP_KEY) return next();
   return res.status(400).send({
@@ -10,6 +12,6 @@ const verifyAppKey = (req: NextApiRequest, res: NextApiResponse, next: NextFunct
     message: 'Secret key invalid.',
     error: true
   });
-};
+});
 
-export default verifyAppKey;
+export default withVerifyAppKey;
