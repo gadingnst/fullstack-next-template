@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "mongodb": "^4.9.1",
-    "next": "12.3.0",
+    "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
