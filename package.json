@@ -11,7 +11,7 @@
     "lint:fix": "tsc --noEmit && eslint src --ignore-pattern 'src/public' --fix"
   },
   "dependencies": {
-    "mongodb": "^4.9.1",
+    "mongodb": "^4.10.0",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
