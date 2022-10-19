@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
-
-import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect } from 'react';
+import Link from 'next/link';
+
+import SVG from '@/components/base/Image/SVG';
+import IconVercel from '$/vercel.svg';
+
 import styles from './styles.module.css';
 
 export default function Home() {
@@ -69,7 +71,7 @@ export default function Home() {
         >
           Powered by{' '}
           <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <SVG src={IconVercel} width={72} height={16} />
           </span>
         </a>
       </footer>
