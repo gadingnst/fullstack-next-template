@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import type { NextApiResponse } from 'next';
 
-class HttpError<T = any> extends Error {
-  constructor(code: number, message: string, payload?: T) {
-    const responseError = { code, message, error: true, payload };
+class HttpError<T = any, E = string[]> extends Error {
+  constructor(code: number, errors: E, message: string, payload?: T) {
+    const responseError = { code, errors, message, payload };
     super(JSON.stringify(responseError));
     Object.setPrototypeOf(this, this.constructor.prototype);
   }
@@ -18,7 +18,7 @@ class HttpError<T = any> extends Error {
     return res.status(500).send({
       code: 500,
       message: 'Internal server error.',
-      error: true
+      errors: ['An unknown error has occured.']
     });
   }
 }

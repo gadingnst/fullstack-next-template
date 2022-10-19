@@ -1,12 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import type { HttpResponse } from '@/server/types/Http';
 import type { MethodHandler } from './with-method';
 
 export type NextFunction = () => void;
-export type MiddlewareHandler = (req: NextApiRequest, res: NextApiResponse, next: NextFunction) => void;
+export type MiddlewareHandler<T = HttpResponse> = (req: NextApiRequest, res: NextApiResponse<T>, next: NextFunction) => void;
 
-const withMiddleware = (handler: MiddlewareHandler) =>
+const withMiddleware = <T = HttpResponse>(handler: MiddlewareHandler<T>) =>
   (next: MethodHandler) =>
-    (req: NextApiRequest, res: NextApiResponse) => {
+    (req: NextApiRequest, res: NextApiResponse<T>) => {
       const nextHandler = () => next(req, res);
       return handler(req, res, nextHandler);
     };
