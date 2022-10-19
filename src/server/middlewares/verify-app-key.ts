@@ -9,8 +9,8 @@ const withVerifyAppKey = withMiddleware((req, res, next) => {
   if (key === SECRET_APP_KEY) return next();
   return res.status(400).send({
     code: 400,
-    message: 'Secret key invalid.',
-    error: true
+    message: 'Bad request.',
+    errors: ['Secret key invalid.']
   });
 });
 

@@ -1,21 +1,15 @@
 
 import type { NextApiResponse } from 'next';
+import type { HttpResponse } from '@/server/types/Http';
 import HttpError from '@/server/lib/HttpError';
-
-export interface HttpResponse<T> {
-  code: number;
-  message: string;
-  error?: boolean;
-  payload?: T;
-}
 
 abstract class Controller {
   protected sendJSON<T>(res: NextApiResponse, data: HttpResponse<T>) {
-    return res.status(data.code).send({ error: false, ...data });
+    return res.status(data.code).send(data);
   }
 
-  protected setError(code: number, msg: string) {
-    throw new HttpError(code, msg);
+  protected setError<E = string[]>(code: number, errors: E, message?: string) {
+    throw new HttpError(code, errors, message ?? 'HTTP errors has occured.');
   }
 
   protected handleError(res: NextApiResponse, error: Error|unknown) {
