@@ -1,0 +1,17 @@
+/* img loading */
+.lazy-load-image-background.blur {
+  @apply blur-none;
+  & > img {
+    @apply opacity-0;
+  }
+}
+
+/* img loaded */
+.lazy-load-image-background.blur.lazy-load-image-loaded {
+  transition: filter .5s;
+  @apply blur-none;
+  & > img {
+    transition: opacity .5s;
+    @apply opacity-100;
+  }
+}

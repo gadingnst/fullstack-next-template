@@ -1,0 +1,13 @@
+.loader {
+  width: 2rem;
+  height: 2rem;
+  border-top-color: #CACBCF;
+  border-left-color: #CACBCF;
+  @apply
+    inline-block align-middle box-border
+    rounded-full border-2 border-solid;
+}
+
+.blur {
+  @apply blur-lg !important;
+}
