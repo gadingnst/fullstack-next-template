@@ -11,8 +11,8 @@ export interface Props extends SVGAttributes<SVGElement> {
 }
 
 /**
- * Handle inline SVG with static internal import
- * Note: Used to handle static internal SVG assets
+ * Handle inline SVG with static internal import.
+ * (Note: Used to handle static internal SVG assets)
  * @example
  * import YourSVG from '@/assets/to/path/your.svg';
  * <SVG src={YourSVG} size={32} />
