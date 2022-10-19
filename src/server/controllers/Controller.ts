@@ -1,7 +1,7 @@
 
 import type { NextApiResponse } from 'next';
 import type { HttpResponse } from '@/server/types/Http';
-import HttpError from '@/server/lib/HttpError';
+import HttpError from '@/server/libs/HttpError';
 
 abstract class Controller {
   protected sendJSON<T>(res: NextApiResponse, data: HttpResponse<T>) {
