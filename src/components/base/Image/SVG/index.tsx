@@ -11,9 +11,11 @@ export interface Props extends SVGAttributes<SVGElement> {
 }
 
 /**
- * Handle SVG static import into inline React Component
- * PS: Only be used with internal SVG asset
- * @example <SVG src={ImportedFromStaticInternalSVGAsset} size={32} />
+ * Handle inline SVG with static internal import.
+ * (Note: Used to handle static internal SVG assets)
+ * @example
+ * import YourSVG from '@/assets/to/path/your.svg';
+ * <SVG src={YourSVG} size={32} />
  */
 const SVG: FunctionComponent<Props> = (props) => {
   const {
