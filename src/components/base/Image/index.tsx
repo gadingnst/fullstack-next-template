@@ -3,7 +3,6 @@ import { FunctionComponent, useCallback, useMemo, useState } from 'react';
 import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
 
 import clsxm from '@/utils/helpers/clsxm';
-import { IS_DEV } from '@/utils/config';
 import { DEFAULT_PLACEHOLDER } from './constant';
 import styles from './index.module.css';
 
@@ -16,7 +15,7 @@ interface Props extends LazyLoadImageProps {
 
 const Image: FunctionComponent<Props> = (props) => {
   const {
-    src: srcProps,
+    src,
     onClick,
     ...lazyloadProps
   } = props;
@@ -31,15 +30,15 @@ const Image: FunctionComponent<Props> = (props) => {
     afterLoad
   } = lazyloadProps;
 
-  const blurDataURL = (srcProps as any)?.blurDataURL;
+  const blurDataURL = (src as any)?.blurDataURL;
   const [loading, setLoading] = useState(true);
 
-  const src = useMemo(() => (srcProps as any)?.src ?? srcProps, [srcProps]);
+  const source = useMemo(() => (src as any)?.src ?? src, [src]);
 
   const placeholder = useMemo(() => {
     const placeholderDefault = blurDataURL ?? DEFAULT_PLACEHOLDER;
-    return placeholderSrc === src ? placeholderDefault : placeholderSrc;
-  }, [src, placeholderSrc]);
+    return (!placeholderSrc || placeholderSrc === source) ? placeholderDefault : placeholderSrc;
+  }, [source, placeholderSrc]);
 
   const handleLoad = useCallback(() => {
     setLoading(false);
@@ -57,14 +56,14 @@ const Image: FunctionComponent<Props> = (props) => {
         decoding="async"
         loading="lazy"
         {...lazyloadProps}
-        src={src}
-        placeholderSrc={IS_DEV ? src : placeholder}
-        style={{ ...style, height, width }}
-        effect="blur"
+        src={source}
+        placeholderSrc={placeholder}
         afterLoad={handleLoad}
+        effect="blur"
         className={className}
+        style={{ ...style, height, width }}
         wrapperClassName={clsxm(
-          blurDataURL && loading ? styles.blur : '',
+          loading ? styles.blur : '',
           wrapperClassName
         )}
       />
