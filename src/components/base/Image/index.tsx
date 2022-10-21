@@ -10,6 +10,7 @@ import styles from './index.module.css';
 // @ts-ignore
 interface Props extends LazyLoadImageProps {
   src: ImageProps['src'];
+  withLoader?: boolean;
   onClick?: () => void;
 }
 
@@ -17,6 +18,7 @@ const Image: FunctionComponent<Props> = (props) => {
   const {
     src,
     onClick,
+    withLoader,
     ...lazyloadProps
   } = props;
 
@@ -45,6 +47,13 @@ const Image: FunctionComponent<Props> = (props) => {
     afterLoad?.();
   }, []);
 
+  const renderLoader = useMemo(() => {
+    if (withLoader && loading) {
+      return <span className={clsxm(styles.loader, 'absolute')} />;
+    }
+    return null;
+  }, [withLoader, loading]);
+
   return (
     <span
       className="flex items-center justify-center"
@@ -67,9 +76,7 @@ const Image: FunctionComponent<Props> = (props) => {
           wrapperClassName
         )}
       />
-      {loading && (
-        <span className={clsxm(styles.loader, 'absolute')} />
-      )}
+      {renderLoader}
     </span>
   );
 };
@@ -77,6 +84,7 @@ const Image: FunctionComponent<Props> = (props) => {
 Image.defaultProps = {
   className: '',
   style: {},
+  withLoader: false,
   onClick: () => void 0
 };
 
