@@ -1,4 +1,3 @@
-
 import type { NextApiResponse } from 'next';
 import type { HttpResponse } from '@/server/types/Http';
 import HttpError from '@/server/libs/HttpError';
