@@ -1,9 +1,10 @@
-import clsxm from '@/utils/helpers/clsxm';
 import { FunctionComponent, useCallback, useMemo, useRef } from 'react';
-import ReactInlineSVG, { Props as ReactSVGProps } from 'react-inlinesvg';
+import ReactInlineSVG, { Props as ReactInlineSVGProps } from 'react-inlinesvg';
+
+import clsxm from '@/utils/helpers/clsxm';
 import { DEFAULT_PLACEHOLDER } from '../constant';
 
-export type Props = ReactSVGProps & {
+export type Props = ReactInlineSVGProps & {
   src: string;
   size?: number;
   alt?: string;

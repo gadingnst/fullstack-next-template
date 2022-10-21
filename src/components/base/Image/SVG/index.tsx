@@ -1,5 +1,6 @@
 import type { ImageProps } from 'next/image';
 import { FunctionComponent, SVGAttributes, useMemo } from 'react';
+
 import clsxm from '@/utils/helpers/clsxm';
 
 export interface Props extends SVGAttributes<SVGElement> {

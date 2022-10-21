@@ -1,17 +1,24 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
 import NextHead from 'next/head';
 
-interface Props {
-  title?: string;
+import { SITE_NAME } from '@/utils/config';
+
+export interface Props {
+  title: string;
 }
 
 const Head: FunctionComponent<PropsWithChildren<Props>> = (props) => {
-  const { children } = props;
+  const {
+    title = SITE_NAME,
+    children
+  } = props;
+
   return (
     <NextHead>
-      {children}
+      <title>{title}</title>
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      {children}
     </NextHead>
   );
 };

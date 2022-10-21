@@ -6,13 +6,11 @@ import clsxm from '@/utils/helpers/clsxm';
 import { DEFAULT_PLACEHOLDER } from './constant';
 import styles from './index.module.css';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-interface Props extends LazyLoadImageProps {
+type Props = LazyLoadImageProps & {
   src: ImageProps['src'];
   withLoader?: boolean;
   onClick?: () => void;
-}
+};
 
 const Image: FunctionComponent<Props> = (props) => {
   const {

@@ -1,10 +1,9 @@
-/* eslint-disable no-console */
 import { useEffect } from 'react';
 import Link from 'next/link';
 
 import SVG from '@/components/base/Image/SVG';
-import IconVercel from '$/vercel.svg';
 
+import IconVercel from '$/vercel.svg';
 import styles from './styles.module.css';
 
 export default function Home() {
@@ -12,6 +11,7 @@ export default function Home() {
     const Aborter = new AbortController();
     fetch('/api/voucher', { signal: Aborter.signal })
       .then(response => response.json())
+      // eslint-disable-next-line no-console
       .then(console.log);
     return () => {
       Aborter.abort();
@@ -32,7 +32,7 @@ export default function Home() {
           </Link>
         </p>
 
-        <p className="text-sm text-slate-400 mt-5">
+        <p className="text-sm text-slate-400 mt-5 px-5 text-center mb-16">
           See browser console if you want to see the data returned from the API.
         </p>
 
@@ -48,7 +48,7 @@ export default function Home() {
           </a>
 
           <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
+            href="https://github.com/vercel/next.js/tree/canary/examples"
             className={styles.card}
           >
             <h2>Examples &rarr;</h2>
@@ -75,7 +75,7 @@ export default function Home() {
         >
           Powered by{' '}
           <span className={styles.logo}>
-            <SVG src={IconVercel} width={72} height={16} />
+            <SVG fill="currentColor" src={IconVercel} width={72} height={16} />
           </span>
         </a>
       </footer>
