@@ -53,8 +53,10 @@ const Image: FunctionComponent<Props> = (props) => {
       onClick={onClick}
     >
       <LazyLoadImage
-        {...lazyloadProps}
         useIntersectionObserver
+        decoding="async"
+        loading="lazy"
+        {...lazyloadProps}
         src={src}
         placeholderSrc={IS_DEV ? src : placeholder}
         style={{ ...style, height, width }}
