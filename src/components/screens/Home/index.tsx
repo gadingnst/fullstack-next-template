@@ -9,9 +9,13 @@ import styles from './styles.module.css';
 
 export default function Home() {
   useEffect(() => {
-    fetch('/api/voucher')
+    const Aborter = new AbortController();
+    fetch('/api/voucher', { signal: Aborter.signal })
       .then(response => response.json())
       .then(console.log);
+    return () => {
+      Aborter.abort();
+    };
   }, []);
 
   return (
