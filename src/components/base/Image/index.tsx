@@ -1,5 +1,5 @@
 import type { ImageProps } from 'next/image';
-import { FunctionComponent, useCallback, useMemo, useState } from 'react';
+import { FunctionComponent, ReactEventHandler, useCallback, useMemo, useState } from 'react';
 import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
 
 import clsxm from '@/utils/helpers/clsxm';
@@ -29,13 +29,18 @@ const Image: FunctionComponent<Props> = (props) => {
     className,
     wrapperClassName,
     placeholderSrc,
-    afterLoad
+    afterLoad,
+    onError
   } = lazyloadProps;
 
   const blurDataURL = (src as any)?.blurDataURL;
   const [loading, setLoading] = useState(true);
 
-  const source = useMemo(() => (src as any)?.src ?? src, [src]);
+  const imgSrc = useMemo(() => (
+    (src as any)?.src ?? src ?? placeholderSrc ?? DEFAULT_PLACEHOLDER
+  ), [src, placeholderSrc]);
+
+  const [source, setSource] = useState<string>(imgSrc);
 
   const placeholder = useMemo(() => {
     const placeholderDefault = blurDataURL ?? DEFAULT_PLACEHOLDER;
@@ -45,7 +50,12 @@ const Image: FunctionComponent<Props> = (props) => {
   const handleLoad = useCallback(() => {
     setLoading(false);
     afterLoad?.();
-  }, []);
+  }, [afterLoad]);
+
+  const handleError: ReactEventHandler<HTMLImageElement> = useCallback((event) => {
+    setSource(placeholder);
+    onError?.(event);
+  }, [onError, placeholder]);
 
   const renderLoader = useMemo(() => {
     if (withLoader && loading) {
@@ -70,6 +80,7 @@ const Image: FunctionComponent<Props> = (props) => {
         afterLoad={handleLoad}
         effect="blur"
         className={className}
+        onError={handleError}
         style={{ ...style, height, width }}
         wrapperClassName={clsxm(
           loading ? styles.blur : '',

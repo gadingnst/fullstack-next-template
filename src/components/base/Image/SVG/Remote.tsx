@@ -73,6 +73,7 @@ const SVGRemote: FunctionComponent<Props> = (props) => {
           width={width}
           height={height}
           alt={alt}
+          style={{ width, height }}
         />
       </ReactInlineSVG>
     </span>
