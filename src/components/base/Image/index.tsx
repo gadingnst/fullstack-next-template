@@ -33,14 +33,13 @@ const Image: FunctionComponent<Props> = (props) => {
     onError
   } = lazyloadProps;
 
-  const blurDataURL = (src as any)?.blurDataURL;
-  const [loading, setLoading] = useState(true);
-
   const imgSrc = useMemo(() => (
     (src as any)?.src ?? src ?? placeholderSrc ?? DEFAULT_PLACEHOLDER
   ), [src, placeholderSrc]);
 
+  const blurDataURL = (src as any)?.blurDataURL;
   const [source, setSource] = useState<string>(imgSrc);
+  const [loading, setLoading] = useState(true);
 
   const placeholder = useMemo(() => {
     const placeholderDefault = blurDataURL ?? DEFAULT_PLACEHOLDER;
