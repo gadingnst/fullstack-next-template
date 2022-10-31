@@ -10,7 +10,7 @@ export interface Props {
 
 export const getServerSideProps: GetServerSideProps<Props> = async(ctx): Promise<GetServerSidePropsResult<Props>> => {
   const { query } = ctx;
-  const rawResult = await fetch('https://api.quran.gading.dev/');
+  const rawResult = await fetch('https://api.quran.gading.dev/', { cache: 'force-cache' });
   const result = await rawResult.json();
   return {
     props: {
@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async(ctx): Promise
 function About(props: Props) {
   return (
     <div className="flex justify-center items-center h-screen w-full">
-      <main className="-mt-10">
+      <main className="mt-10 md:-mt-10">
         <h1 className="text-center text-xl mb-10">
           {props.maintainer}
         </h1>
@@ -32,7 +32,7 @@ function About(props: Props) {
           <Image
             effect="blur"
             src="https://gading.dev/assets/images/authors/gading-talks.jpeg"
-            size={300}
+            size={200}
             alt="Sutan Gading Fadhillah Nasution"
             wrapperClassName="rounded-full overflow-hidden cursor-grab active:cursor-grabbing"
           />
