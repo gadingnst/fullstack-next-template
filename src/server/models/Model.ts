@@ -38,10 +38,14 @@ abstract class Model<T> {
     return db.collection(this.collectionName);
   }
 
+  protected withFields<F>(data: unknown): F {
+    return data as F;
+  }
+
   public async all(): Promise<T[]> {
     const collection = await this.connect();
     const data = await collection.find().toArray();
-    return data as T[];
+    return this.withFields(data);
   }
 
   public async insert(data: T) {
@@ -53,7 +57,7 @@ abstract class Model<T> {
   public async getById(id: number|string): Promise<T> {
     const collection = await this.connect();
     const data = await collection.findOne({ _id: new ObjectId(id) });
-    return data as T;
+    return this.withFields(data);
   }
 
   public async updateById(id: number|string|ObjectId, data: Partial<T>) {
