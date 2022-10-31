@@ -18,16 +18,13 @@ const Image: FunctionComponent<Props> = (props) => {
     src,
     effect,
     size,
-    ...lazyloadProps
-  } = props;
-
-  const {
     style,
     className,
     wrapperClassName,
     placeholderSrc,
-    onError
-  } = lazyloadProps;
+    onError,
+    ...lazyloadProps
+  } = props;
 
   const imgSrc = useMemo(() => (
     (src as any)?.src ?? src ?? placeholderSrc ?? DEFAULT_PLACEHOLDER

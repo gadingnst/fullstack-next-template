@@ -10,7 +10,7 @@ export interface Props {
 
 export type UnknownProps = Record<string, unknown>;
 
-const Layout: FunctionComponent<PropsWithChildren<Props>> = (props) => {
+const MainLayoutPage: FunctionComponent<PropsWithChildren<Props>> = (props) => {
   const {
     children,
     title: titleProps
@@ -27,13 +27,13 @@ const Layout: FunctionComponent<PropsWithChildren<Props>> = (props) => {
 };
 
 /**
- * Higher-order component that wraps the provided component in a `<Layout>` component.
+ * Higher-order component that wraps the provided component in a `<MainLayoutPage>` component.
  * Of course, you can create your new Layout with this template!
  * @param PageComponent - The page component to wrap with the layout
  * @param layoutProps - The props to pass to the layout
  * @returns - NextPage
  */
-export const withPageLayout = <T extends UnknownProps>(
+export const withMainLayoutPage = <T extends UnknownProps>(
   PageComponent: NextPage<T>, layoutProps: Props|((pageProps: T) => Props)
 ) => {
   const LayoutPage: FunctionComponent<T> = (pageProps) => {
@@ -43,12 +43,12 @@ export const withPageLayout = <T extends UnknownProps>(
     }, [pageProps]);
 
     return (
-      <Layout {...layoutPropsWithPageProps}>
+      <MainLayoutPage {...layoutPropsWithPageProps}>
         <PageComponent {...pageProps} />
-      </Layout>
+      </MainLayoutPage>
     );
   };
   return LayoutPage;
 };
 
-export default Layout;
+export default MainLayoutPage;

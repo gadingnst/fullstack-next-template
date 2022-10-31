@@ -1,55 +1,15 @@
+/* @ts-check */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const headers = require('./headers.config');
+const webpack = require('./webpack.config');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  headers,
+  webpack,
   reactStrictMode: true,
   swcMinify: true,
-  pageExtensions: ['ts', 'tsx'],
-  images: {
-    minimumCacheTTL: 60 * 60 * 24
-  },
-  webpack: (config) => {
-    /**
-     * handle SVGR module
-     * @see https://react-svgr.com/docs/webpack/
-     */
-    config.module.rules = [
-      ...config.module.rules,
-      {
-        test: /\.svg$/i,
-        type: 'asset',
-        resourceQuery: /url/
-      },
-      {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: [/url/] },
-        use: [{
-          loader: '@svgr/webpack',
-          options: {
-            typescript: true,
-            dimensions: false
-          }
-        }]
-      }
-    ];
-    return config;
-  },
-  headers: () => {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          }
-        ]
-      }
-    ];
-  }
+  pageExtensions: ['ts', 'tsx']
 };
 
 module.exports = nextConfig;
