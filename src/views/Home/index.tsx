@@ -43,6 +43,12 @@ export default function Home() {
           </Link>
         </p>
 
+        <Link href="/about?text=Hello%20World">
+          <a className="text-fuchsia-300 text-center mt-5 hover:underline underline-offset-4">
+            About Page
+          </a>
+        </Link>
+
         <p className="text-sm text-slate-400 mt-5 px-5 text-center mb-16">
           See browser console if you want to see the data returned from the API.
         </p>

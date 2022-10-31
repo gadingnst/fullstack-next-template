@@ -8,7 +8,7 @@ export interface Props {
   title: string;
 }
 
-export type UnknownProps = Record<string, unknown>;
+export type UnknownProps = Record<string, any>;
 
 const MainLayoutPage: FunctionComponent<PropsWithChildren<Props>> = (props) => {
   const {
