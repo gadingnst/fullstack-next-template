@@ -1,15 +1,13 @@
 import { FunctionComponent, useCallback, useMemo, useRef } from 'react';
 import ReactInlineSVG, { Props as ReactInlineSVGProps } from 'react-inlinesvg';
 
-import clsxm from '@/utils/helpers/clsxm';
-import { DEFAULT_PLACEHOLDER } from '../constant';
+import { DEFAULT_PLACEHOLDER, useSize } from '../helpers';
 
 export type Props = ReactInlineSVGProps & {
   src: string;
-  size?: number;
   alt?: string;
-  wrapperClassName?: string;
-  placeholder?: string;
+  size?: string|number;
+  placeholderSrc?: string;
   onClick?: () => void;
 };
 
@@ -24,68 +22,59 @@ const SVGRemote: FunctionComponent<Props> = (props) => {
     size,
     alt,
     className,
-    wrapperClassName,
-    onClick,
-    placeholder: placeholderParam,
+    placeholderSrc,
     ...svgProps
   } = props;
 
   const imgRef = useRef<HTMLImageElement>(null);
 
   const placeholder = useMemo(() => {
-    return placeholderParam || DEFAULT_PLACEHOLDER;
-  }, [placeholderParam]);
+    return placeholderSrc || DEFAULT_PLACEHOLDER;
+  }, [placeholderSrc]);
 
   const source = useMemo(() => {
     return src || placeholder;
   }, [src, placeholder]);
 
-  const { width, height } = useMemo(() => ({
-    width: svgProps.width || size,
-    height: svgProps.height || size
-  }), [svgProps.width, svgProps.height, size]);
+  const { width, height } = useSize(size, {
+    height: svgProps.height,
+    width: svgProps.width
+  });
 
   const onError = useCallback(() => {
     if (imgRef.current) {
       imgRef.current.src = placeholder;
     }
-  }, []);
+  }, [placeholder]);
 
   return (
-    <span
-      className={clsxm('flex justify-center items-center', wrapperClassName)}
-      style={{ width, height }}
-      onClick={onClick}
+    <ReactInlineSVG
+      cacheRequests
+      {...svgProps}
+      src={source}
+      className={className}
+      width={width}
+      height={height}
     >
-      <ReactInlineSVG
-        cacheRequests
-        {...svgProps}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        ref={imgRef}
         src={source}
+        onError={onError}
         className={className}
         width={width}
         height={height}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          ref={imgRef}
-          src={source}
-          onError={onError}
-          className={className}
-          width={width}
-          height={height}
-          alt={alt}
-          style={{ width, height }}
-        />
-      </ReactInlineSVG>
-    </span>
+        alt={alt}
+        style={{ width, height }}
+      />
+    </ReactInlineSVG>
   );
 };
 
 SVGRemote.defaultProps = {
   className: '',
-  wrapperClassName: '',
   alt: 'SVG Fallback Image',
-  placeholder: '',
+  placeholderSrc: '',
   size: 32,
   onClick: () => void 0
 };

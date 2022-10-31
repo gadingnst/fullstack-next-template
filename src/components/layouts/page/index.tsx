@@ -40,7 +40,7 @@ export const withPageLayout = <T extends UnknownProps>(
     const layoutPropsWithPageProps = useMemo(() => {
       return typeof layoutProps === 'function'
         ? layoutProps(pageProps) : layoutProps;
-    }, [layoutProps, pageProps]);
+    }, [pageProps]);
 
     return (
       <Layout {...layoutPropsWithPageProps}>

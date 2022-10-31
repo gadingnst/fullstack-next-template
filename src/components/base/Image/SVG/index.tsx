@@ -1,13 +1,11 @@
 import type { ImageProps } from 'next/image';
-import { FunctionComponent, SVGAttributes, useMemo } from 'react';
-
-import clsxm from '@/utils/helpers/clsxm';
+import { FunctionComponent, SVGAttributes } from 'react';
+import { useSize } from '../helpers';
 
 export interface Props extends SVGAttributes<SVGElement> {
   src: ImageProps['src'];
-  size?: number;
   className?: string;
-  wrapperClassName?: string;
+  size?: string|number;
   onClick?: () => void;
 }
 
@@ -22,38 +20,27 @@ const SVG: FunctionComponent<Props> = (props) => {
   const {
     src: SVGComponent,
     size,
-    className,
-    wrapperClassName,
-    onClick,
     ...svgProps
   } = props;
 
-  const { width, height } = useMemo(() => ({
-    width: svgProps.width || size,
-    height: svgProps.height || size
-  }), [svgProps.width, svgProps.height, size]);
+  const { width, height } = useSize(size, {
+    height: svgProps.height,
+    width: svgProps.width
+  });
 
   return (
-    <span
-      className={clsxm('flex justify-center items-center', wrapperClassName)}
-      style={{ width, height }}
-      onClick={onClick}
-    >
-      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-      {/* @ts-ignore */}
-      <SVGComponent
-        {...svgProps}
-        className={className}
-        width={width}
-        height={height}
-      />
-    </span>
+    /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+    /* @ts-ignore */
+    <SVGComponent
+      {...svgProps}
+      width={width}
+      height={height}
+    />
   );
 };
 
 SVG.defaultProps = {
   className: '',
-  wrapperClassName: '',
   size: 32,
   onClick: () => void 0
 };

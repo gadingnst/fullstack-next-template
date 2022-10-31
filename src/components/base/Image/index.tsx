@@ -3,31 +3,29 @@ import { FunctionComponent, ReactEventHandler, useCallback, useMemo, useState } 
 import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
 
 import clsxm from '@/utils/helpers/clsxm';
-import { DEFAULT_PLACEHOLDER } from './constant';
+import { DEFAULT_PLACEHOLDER, useSize } from './helpers';
 import styles from './index.module.css';
 
 type Props = LazyLoadImageProps & {
   src: ImageProps['src'];
-  withLoader?: boolean;
+  effect?: 'blur'|'opacity';
+  size?: string|number;
   onClick?: () => void;
 };
 
 const Image: FunctionComponent<Props> = (props) => {
   const {
     src,
-    onClick,
-    withLoader,
+    effect,
+    size,
     ...lazyloadProps
   } = props;
 
   const {
-    height,
-    width,
     style,
     className,
     wrapperClassName,
     placeholderSrc,
-    afterLoad,
     onError
   } = lazyloadProps;
 
@@ -37,62 +35,43 @@ const Image: FunctionComponent<Props> = (props) => {
 
   const blurDataURL = (src as any)?.blurDataURL;
   const [source, setSource] = useState<string>(imgSrc);
-  const [loading, setLoading] = useState(true);
 
   const placeholder = useMemo(() => {
     const placeholderDefault = blurDataURL ?? DEFAULT_PLACEHOLDER;
     return (!placeholderSrc || placeholderSrc === source) ? placeholderDefault : placeholderSrc;
-  }, [source, placeholderSrc]);
+  }, [source, placeholderSrc, blurDataURL]);
 
-  const handleLoad = useCallback(() => {
-    setLoading(false);
-    afterLoad?.();
-  }, [afterLoad]);
+  const { width, height } = useSize(size, {
+    height: lazyloadProps.height,
+    width: lazyloadProps.width
+  });
 
   const handleError: ReactEventHandler<HTMLImageElement> = useCallback((event) => {
     setSource(placeholder);
     onError?.(event);
   }, [onError, placeholder]);
 
-  const renderLoader = useMemo(() => {
-    if (withLoader && loading) {
-      return <span className={clsxm(styles.loader, 'absolute')} />;
-    }
-    return null;
-  }, [withLoader, loading]);
-
   return (
-    <span
-      className="flex items-center justify-center"
-      style={{ height, width }}
-      onClick={onClick}
-    >
-      <LazyLoadImage
-        useIntersectionObserver
-        decoding="async"
-        loading="lazy"
-        {...lazyloadProps}
-        src={source}
-        placeholderSrc={placeholder}
-        afterLoad={handleLoad}
-        effect="blur"
-        className={className}
-        onError={handleError}
-        style={{ ...style, height, width }}
-        wrapperClassName={clsxm(
-          loading ? styles.blur : '',
-          wrapperClassName
-        )}
-      />
-      {renderLoader}
-    </span>
+    <LazyLoadImage
+      useIntersectionObserver
+      decoding="async"
+      loading="lazy"
+      {...lazyloadProps}
+      effect={effect}
+      src={source}
+      placeholderSrc={placeholder}
+      className={className}
+      onError={handleError}
+      style={{ ...style, height, width }}
+      wrapperClassName={clsxm(styles.wrapper, wrapperClassName)}
+    />
   );
 };
 
 Image.defaultProps = {
   className: '',
   style: {},
-  withLoader: false,
+  effect: 'opacity',
   onClick: () => void 0
 };
 
