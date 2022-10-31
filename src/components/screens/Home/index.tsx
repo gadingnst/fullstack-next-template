@@ -30,11 +30,10 @@ export default function Home() {
         <Image
           effect="blur"
           src="https://gading.dev/media/banners/1.jpg"
-          width={328}
-          height={200}
+          width={500}
           alt="Vercel Logo"
-          className="flex justify-center items-center w-full max-w-full rounded-md"
-          wrapperClassName="mt-10"
+          className="flex justify-center items-center rounded-md sm:min-h-[300px] h-full"
+          wrapperClassName="mt-10 max-w-full -mb-10"
         />
 
         <p className={styles.description}>
