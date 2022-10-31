@@ -41,7 +41,7 @@ abstract class Model<T> {
   public async all(): Promise<T[]> {
     const collection = await this.connect();
     const data = await collection.find().toArray();
-    return data as unknown as T[];
+    return data as T[];
   }
 
   public async insert(data: T) {
@@ -53,7 +53,7 @@ abstract class Model<T> {
   public async getById(id: number|string): Promise<T> {
     const collection = await this.connect();
     const data = await collection.findOne({ _id: new ObjectId(id) });
-    return data as unknown as T;
+    return data as T;
   }
 
   public async updateById(id: number|string|ObjectId, data: Partial<T>) {
