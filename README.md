@@ -1,5 +1,19 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Features
+This `starter-template` is packed with:
+
+- 🎉 Next.js 12
+- ⚛️ React 18
+- ✨ TypeScript
+- 💨 Tailwind CSS 3
+- 📈 Path Alias — Import your module in `src` using `@/` prefix, and in `public` using `$/`
+- 📏 ESLint — Find and fix problems in your code
+- 🐶 Husky — Run scripts on your staged files before they are committed
+- 🧩 Pre-built Components to handle dynamic Image and SVG in `components/base/Image`
+- ⚡️ Pre-setup ***backend things*** in `server/` folders.
+- 🔥 Full of customization - Of course this template can be fully customizable. You can delete that you don't need or change the DB from MongoDB to your very DB.
+
 ## Getting Started
 
 First, run the development server:
@@ -12,9 +26,9 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/voucher.ts`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
