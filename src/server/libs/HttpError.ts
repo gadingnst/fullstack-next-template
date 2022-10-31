@@ -18,7 +18,7 @@ class HttpError<T = any, E = string[]> extends Error {
     return res.status(500).send({
       code: 500,
       message: 'Internal server error.',
-      errors: ['An unknown error has occured.']
+      errors: ['An unknown error in server has occured.']
     });
   }
 }
