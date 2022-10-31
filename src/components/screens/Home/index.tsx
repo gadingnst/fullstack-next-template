@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 
+import Image from '@/components/base/Image';
 import SVG from '@/components/base/Image/SVG';
+import SVGRemote from '@/components/base/Image/SVG/Remote';
 
 import IconVercel from '$/vercel.svg';
 import styles from './styles.module.css';
@@ -24,6 +26,16 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <Image
+          effect="blur"
+          src="https://gading.dev/media/banners/1.jpg"
+          width={328}
+          height={200}
+          alt="Vercel Logo"
+          className="flex justify-center items-center w-full max-w-full rounded-md"
+          wrapperClassName="mt-10"
+        />
 
         <p className={styles.description}>
           Visit the demo API{' '}
@@ -68,6 +80,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
+        <Image src="https://gading.dev/assets/icons/app/logo.png" size={32} alt="Vercel Logo" />
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
@@ -78,6 +91,7 @@ export default function Home() {
             <SVG fill="currentColor" src={IconVercel} width={72} height={16} />
           </span>
         </a>
+        <SVGRemote fill="currentColor" src="https://gading.dev/assets/icons/app/logo-secondary.svg" size={32} />
       </footer>
     </div>
   );

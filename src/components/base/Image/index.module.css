@@ -1,3 +1,26 @@
+.wrapper {
+  img {
+    @apply opacity-0;
+  }
+
+  &[class*="lazy-load-image-loaded"] {
+    @apply blur-none;
+    & > img {
+      @apply opacity-100;
+    }
+  }
+
+  &[class*="blur"] {
+    &[class*="lazy-load-image-loaded"] {
+      transition: filter .3s;
+      @apply blur-none delay-300;
+      & > img {
+        transition: opacity .3s;
+      }
+    }
+  }
+}
+
 .loader {
   width: 2rem;
   height: 2rem;
@@ -6,8 +29,4 @@
   @apply
     inline-block align-middle box-border
     rounded-full border-2 border-solid;
-}
-
-.blur {
-  @apply blur-lg !important;
 }
