@@ -16,7 +16,7 @@ abstract class Model<T> {
   /**
    * In development mode, use a global variable so that the value is preserved across module reloads caused by HMR (Hot Module Replacement).
    * In production mode, it's best to not use a global variable.
-   * @see https://github.com/vercel/next.js/blob/canary/examples/with-mongodb/lib/mongodb.js
+   * @see https://github.com/vercel/next.js/blob/canary/examples/with-mongodb/lib/mongodb.ts
    */
   protected async connect(): Promise<Collection<Document>> {
     const client = new MongoClient(MONGODB_URI);
