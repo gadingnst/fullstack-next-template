@@ -91,7 +91,7 @@ export default function Home() {
             <SVG fill="currentColor" src={IconVercel} width={72} height={16} />
           </span>
         </a>
-        <SVGRemote fill="currentColor" src="https://gading.dev/assets/icons/app/logo-secondary.svg" size={32} />
+        <SVGRemote src="https://gading.dev/assets/icons/app/logo-secondary.svg" size={32} />
       </footer>
     </div>
   );

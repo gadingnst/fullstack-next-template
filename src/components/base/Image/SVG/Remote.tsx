@@ -15,6 +15,7 @@ export type Props = ReactInlineSVGProps & {
  * Handle inline SVG with dynamic path/url.
  * (Note: Used to handle dynamic external/internal SVG assets)
  * @example <SVGRemote src="/assets/path/to/your.svg" size={32} />
+ * @see https://www.npmjs.com/package/react-inlinesvg
  */
 const SVGRemote: FunctionComponent<Props> = (props) => {
   const {
