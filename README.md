@@ -12,7 +12,7 @@ This `starter-template` is packed with:
 - 🐶 Husky — Run scripts on your staged files before they are committed
 - 🧩 Pre-built Components to handle dynamic Lazyload, Image and SVG in `components/base`
 - ⚡️ Pre-setup ***backend things*** in `server/` folders.
-- 🔥 Full of customization - Of course this template can be fully customize. You can delete that you don't need or change the DB from ***MongoDB*** to your ***very DB***.
+- 🔥 Minimal dependencies & full of customization - Of course this template can be fully customize. You can delete that you don't need or change the DB from ***MongoDB*** to your ***very DB***.
 
 ## Getting Started
 
