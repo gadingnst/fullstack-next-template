@@ -6,11 +6,11 @@ This `starter-template` is packed with:
 - 🎉 Next.js 12
 - ⚛️ React 18
 - ✨ TypeScript
-- 💨 Tailwind CSS 3
+- 💨 Tailwind CSS 3 - Pre-setup with PostCSS Nesting and Import.
 - 📈 Path Alias — Import your module in `src` using `@/` prefix, and in `public` using `$/`
 - 📏 ESLint — Find and fix problems in your code
 - 🐶 Husky — Run scripts on your staged files before they are committed
-- 🧩 Pre-built Components to handle dynamic Image and SVG in `components/base/Image`
+- 🧩 Pre-built Components to handle dynamic Lazyload, Image and SVG in `components/base`
 - ⚡️ Pre-setup ***backend things*** in `server/` folders.
 - 🔥 Full of customization - Of course this template can be fully customizable. You can delete that you don't need or change the DB from MongoDB to your very DB.
 
