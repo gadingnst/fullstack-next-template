@@ -19,21 +19,16 @@ abstract class Model<T> {
    * @see https://github.com/vercel/next.js/blob/canary/examples/with-mongodb/lib/mongodb.ts
    */
   protected async connect(): Promise<Collection<Document>> {
-    const client = new MongoClient(MONGODB_URI);
     let db: Db;
+    const client = new MongoClient(MONGODB_URI);
+    const connect = () => client.connect().then(() => client.db(DB_NAME));
     if (IS_DEV) {
       if (!global._db) {
-        global._db = await client.connect()
-          .then(() => (
-            client.db(DB_NAME)
-          ));
+        global._db = await connect();
       }
       db = global._db;
     } else {
-      db = await client.connect()
-        .then(() => (
-          client.db(DB_NAME)
-        ));
+      db = await connect();
     }
     return db.collection(this.collectionName);
   }
