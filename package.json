@@ -27,7 +27,7 @@
     "@typescript-eslint/parser": "^5.40.1",
     "autoprefixer": "^10.4.12",
     "clsx": "^1.2.1",
-    "eslint": "^8.25.0",
+    "eslint": "^8.26.0",
     "eslint-config-next": "^12.3.1",
     "husky": "^8.0.1",
     "postcss": "^8.4.18",
