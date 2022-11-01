@@ -25,7 +25,7 @@
     "@types/react-lazy-load-image-component": "^1.5.2",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.42.0",
-    "autoprefixer": "^10.4.12",
+    "autoprefixer": "^10.4.13",
     "clsx": "^1.2.1",
     "eslint": "^8.26.0",
     "eslint-config-next": "^13.0.1",
