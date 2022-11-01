@@ -19,7 +19,7 @@
     "react-lazy-load-image-component": "^1.5.5"
   },
   "devDependencies": {
-    "@svgr/webpack": "^6.5.0",
+    "@svgr/webpack": "^6.5.1",
     "@types/node": "^18.11.8",
     "@types/react": "^18.0.24",
     "@types/react-lazy-load-image-component": "^1.5.2",
