@@ -43,10 +43,8 @@ export default function Home() {
           </Link>
         </p>
 
-        <Link href="/about?text=Hello%20World">
-          <a className="text-fuchsia-300 text-center mt-5 hover:underline underline-offset-4">
-            About Page
-          </a>
+        <Link className="text-fuchsia-300 text-center mt-5 hover:underline underline-offset-4" href="/about?text=Hello%20World">
+          About Page
         </Link>
 
         <p className="text-sm text-slate-400 mt-5 px-5 text-center mb-16">

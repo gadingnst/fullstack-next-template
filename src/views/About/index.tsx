@@ -45,10 +45,8 @@ function About(props: Props) {
           <p>
             {JSON.stringify(props.query)}
           </p>
-          <Link href="/">
-            <a className="text-fuchsia-300 text-center mt-5 hover:underline underline-offset-4">
-              Back to Homepage
-            </a>
+          <Link href="/" className="text-fuchsia-300 text-center mt-5 hover:underline underline-offset-4">
+            Back to Homepage
           </Link>
         </div>
       </main>
