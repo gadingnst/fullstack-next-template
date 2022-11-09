@@ -1,6 +1,7 @@
 import type { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Link from 'next/link';
 import Image from '@/components/base/Image';
+import { withMainLayoutPage } from '@/components/layouts/page/Main';
 import styles from './styles.module.css';
 
 export interface Props {
@@ -54,4 +55,6 @@ function About(props: Props) {
   );
 }
 
-export default About;
+export default withMainLayoutPage(About, props => ({
+  title: `About ${props.maintainer}`
+}));

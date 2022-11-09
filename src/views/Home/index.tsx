@@ -4,11 +4,12 @@ import Link from 'next/link';
 import Image from '@/components/base/Image';
 import SVG from '@/components/base/Image/SVG';
 import SVGRemote from '@/components/base/Image/SVG/Remote';
+import { withMainLayoutPage } from '@/components/layouts/page/Main';
 
 import IconVercel from '$/vercel.svg';
 import styles from './styles.module.css';
 
-export default function Home() {
+function Home() {
   useEffect(() => {
     const Aborter = new AbortController();
     fetch('/api/voucher', { signal: Aborter.signal })
@@ -99,3 +100,7 @@ export default function Home() {
     </div>
   );
 }
+
+export default withMainLayoutPage(Home, {
+  title: 'Homepage'
+});
