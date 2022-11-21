@@ -10,7 +10,7 @@ This `starter-template` is packed with:
 - 📈 Path Alias - Import your module in `src` using `@/` prefix, and in `public` using `#/`.
 - 📏 ESLint - Find and fix problems in your code.
 - 🐶 Husky - Run scripts on your staged files before they are committed.
-- 🧩 Pre-built ***components*** to handle dynamic Lazyload, Image and SVG in `components/base`.
+- 🧩 Pre-built ***components*** to handle dynamic Lazyload, Image and SVG in `modules/shared/components/base`.
 - ⚡️ Pre-setup ***backend things*** in `server/` folders.
 - 🪄 Pre-built ***utilities*** to handle common things in backend and frontend.
 - 🔥 Minimal dependencies & full of customization - Of course this template can be fully customize. You can delete that you don't need or change the DB from ***MongoDB*** to your ***very DB***.
