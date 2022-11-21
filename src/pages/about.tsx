@@ -1,4 +1,4 @@
 export {
   default,
   getServerSideProps
-} from '@/views/About';
+} from '@/modules/about/page';

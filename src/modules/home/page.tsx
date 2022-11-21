@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 
-import Image from '@/components/base/Image';
-import SVG from '@/components/base/Image/SVG';
-import SVGRemote from '@/components/base/Image/SVG/Remote';
-import { withMainLayoutPage } from '@/components/layouts/page/Main';
+import Image from '@/modules/shared/components/base/Image';
+import SVG from '@/modules/shared/components/base/Image/SVG';
+import SVGRemote from '@/modules/shared/components/base/Image/SVG/Remote';
+import { withMainLayoutPage } from '@/modules/shared/components/layouts/page/Main';
 
-import IconVercel from '$/vercel.svg';
+import IconVercel from '#/vercel.svg';
 import styles from './styles.module.css';
 
 function Home() {

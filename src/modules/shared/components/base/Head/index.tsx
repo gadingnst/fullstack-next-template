@@ -1,7 +1,7 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
 import NextHead from 'next/head';
 
-import { SITE_NAME } from '@/utils/config';
+import { SITE_NAME } from '@/configs/env';
 
 export interface Props {
   title: string;
