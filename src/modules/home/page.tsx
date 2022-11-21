@@ -7,7 +7,7 @@ import SVGRemote from '@/modules/shared/components/base/Image/SVG/Remote';
 import { withMainLayoutPage } from '@/modules/shared/components/layouts/page/Main';
 
 import IconVercel from '#/vercel.svg';
-import styles from './styles.module.css';
+import styles from './page.module.css';
 
 function Home() {
   useEffect(() => {
