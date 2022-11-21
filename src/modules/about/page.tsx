@@ -1,8 +1,8 @@
 import type { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Link from 'next/link';
-import Image from '@/components/base/Image';
-import { withMainLayoutPage } from '@/components/layouts/page/Main';
+import Image from '@/modules/shared/components/base/Image';
 import styles from './styles.module.css';
+import { withMobileLayoutPage } from '../shared/components/layouts/page/Mobile';
 
 export interface Props {
   maintainer: string;
@@ -55,6 +55,7 @@ function About(props: Props) {
   );
 }
 
-export default withMainLayoutPage(About, props => ({
-  title: `About ${props.maintainer}`
+export default withMobileLayoutPage(About, props => ({
+  title: `About ${props.maintainer}`,
+  classNameMobile: 'dark:shadow-blue-500 px-2'
 }));

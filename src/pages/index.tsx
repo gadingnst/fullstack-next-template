@@ -1,1 +1,1 @@
-export { default } from '@/views/Home';
+export { default } from '@/modules/home/page';

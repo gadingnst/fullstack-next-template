@@ -1,8 +1,5 @@
-process.env;
+export const NODE_ENV = process.env.NODE_ENV || 'production';
 
-export const {
-  NODE_ENV = 'production'
-} = process.env;
-
+/** Custom ENV */
 export const IS_DEV = NODE_ENV !== 'production';
 export const SITE_NAME = 'Fullstack Next.js Template';
