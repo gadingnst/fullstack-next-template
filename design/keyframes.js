@@ -1,3 +1,4 @@
+/** @see https://tailwindcss.com/docs/animation */
 const keyframes = {
   'scale': {
     '0%': {

@@ -3,6 +3,7 @@
 const headers = require('./headers.config');
 const webpack = require('./webpack.config');
 
+/** @see https://nextjs.org/docs/api-reference/next.config.js/introduction */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   headers,

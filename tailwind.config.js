@@ -2,6 +2,7 @@
 
 const keyframes = require('./design/keyframes');
 
+/** @see https://tailwindcss.com/docs/configuration */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [

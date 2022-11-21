@@ -1,3 +1,5 @@
+/** @see https://nextjs.org/docs/basic-features/environment-variables#loading-environment-variables */
+
 export const NODE_ENV = process.env.NODE_ENV || 'production';
 
 /** Custom ENV */
