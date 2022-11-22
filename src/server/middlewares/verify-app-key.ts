@@ -1,4 +1,4 @@
-import withMiddleware from '@/server/utils/with-middleware';
+import withMiddleware from '@/server/utils/withMiddleware';
 import { SECRET_APP_KEY } from '@/server/configs/env';
 
 /**

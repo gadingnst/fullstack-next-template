@@ -2,7 +2,7 @@
 
 import VoucherController from '@/server/controllers/Voucher';
 import withVerifyAppKey from '@/server/middlewares/verify-app-key';
-import withMethod from '@/server/utils/with-method';
+import withMethod from '@/server/utils/withMethod';
 
 export default withMethod({
   GET: VoucherController.index,
