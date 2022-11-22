@@ -16,7 +16,7 @@ function useOutsideClick<T extends Node>(callback: (target: HTMLElement) => void
       return isOutside;
     });
     if (isOutsideRefs) callback(event.target as HTMLElement);
-  }, [callback]);
+  }, []);
   useMounted(() => {
     document.addEventListener('mousedown', handleOutsideClick);
     return () => {
