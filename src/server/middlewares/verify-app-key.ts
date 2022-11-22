@@ -1,5 +1,5 @@
 import withMiddleware from '@/server/utils/with-middleware';
-import { SECRET_APP_KEY } from '@/server/utils/config';
+import { SECRET_APP_KEY } from '@/server/configs/env';
 
 /**
  * create custom middleware with `withMiddleware HoF`
