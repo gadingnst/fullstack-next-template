@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
  * custom hooks to create Copy Clipboard
  * @param value - value to copy
  */
-function useClipboard(value: string) {
+function useClipboard(value: string, delay = 1500) {
   const [isCopied, setCopied] = useState(false);
 
   const copyHandler = useCallback(() => {
@@ -13,8 +13,8 @@ function useClipboard(value: string) {
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
-    }, 1500);
-  }, [isCopied, value]);
+    }, delay);
+  }, [isCopied, value, delay]);
 
   return {
     isCopied,
