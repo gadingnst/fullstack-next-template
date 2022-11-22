@@ -26,8 +26,7 @@ function useScrollListener<T extends Element>(callback: (scrollPosition: ScrollL
     const scrollY = (isReactRef ? element?.scrollTop : window.scrollY) ?? 0;
     const scrollX = (isReactRef ? element?.scrollWidth : window.scrollX) ?? 0;
     callback({ scrollX, scrollY });
-  }, [callback]);
-
+  }, []);
   useMounted(() => {
     const { isReactRef, element } = getReference(reference);
     const target = isReactRef ? element : window;
