@@ -6,6 +6,8 @@ import { ReactNode, useState, useCallback } from 'react';
  * @param node - ReactNode to render in component
  */
 function useClipboard(value: string, node: ReactNode|((value: string) => ReactNode)) {
+  /** Must be rendered in Component */
+  const ClipboardNode = typeof node === 'function' ? node(value) : node;
   const [isCopied, setCopied] = useState(false);
 
   const copyHandler = useCallback(() => {
@@ -16,9 +18,6 @@ function useClipboard(value: string, node: ReactNode|((value: string) => ReactNo
       setCopied(false);
     }, 1500);
   }, [isCopied, value]);
-
-  /** Must be rendered in Component */
-  const ClipboardNode = typeof node === 'function' ? node(value) : node;
 
   return {
     isCopied,
