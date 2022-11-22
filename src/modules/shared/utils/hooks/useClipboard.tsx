@@ -1,4 +1,4 @@
-import { useRef, ReactNode, Fragment, useState } from 'react';
+import { ReactNode, useState, useCallback } from 'react';
 
 /**
  * custom hooks to create Copy Clipboard
@@ -6,35 +6,19 @@ import { useRef, ReactNode, Fragment, useState } from 'react';
  * @param node - ReactNode to render in component
  */
 function useClipboard(value: string, node: ReactNode|((value: string) => ReactNode)) {
-  const refAddress = useRef<HTMLInputElement>();
   const [isCopied, setCopied] = useState(false);
 
-  const copyHandler = () => {
+  const copyHandler = useCallback(() => {
     if (isCopied) return;
-    const copyText = refAddress.current;
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(copyText.value);
+    navigator.clipboard.writeText(value);
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
     }, 1500);
-  };
+  }, [isCopied, value]);
 
   /** Must be rendered in Component */
-  const ClipboardNode = (
-    <Fragment>
-      <input
-        readOnly
-        disabled
-        type="text"
-        value={value}
-        ref={refAddress}
-        style={{ display: 'none' }}
-      />
-      {typeof node === 'function' ? node(value) : node}
-    </Fragment>
-  );
+  const ClipboardNode = typeof node === 'function' ? node(value) : node;
 
   return {
     isCopied,
