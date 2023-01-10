@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
-    "@types/node": "^18.11.10",
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.25",
     "@types/react-lazy-load-image-component": "^1.5.2",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
