@@ -1,7 +1,7 @@
-import type { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Link from 'next/link';
 
 import Image from '@/packages/components/base/Image';
+import withSSRProps from '@/packages/middlewares/SSR/withSSRProps';
 import { withMobileLayoutPage } from '@/packages/components/layouts/page/Mobile';
 
 import styles from './page.module.css';
@@ -11,7 +11,7 @@ export interface Props {
   query?: any;
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async(ctx): Promise<GetServerSidePropsResult<Props>> => {
+export const getServerSideProps = withSSRProps<Props>(async(ctx) => {
   const { query } = ctx;
   const rawResult = await fetch('https://api.quran.gading.dev/', { cache: 'force-cache' });
   const result = await rawResult.json();
@@ -21,7 +21,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async(ctx): Promise
       query
     }
   };
-};
+});
 
 function About(props: Props) {
   return (
