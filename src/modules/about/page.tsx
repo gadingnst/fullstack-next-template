@@ -1,8 +1,10 @@
 import type { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Link from 'next/link';
-import Image from '@/modules/shared/components/base/Image';
+
+import Image from '@/packages/components/base/Image';
+import { withMobileLayoutPage } from '@/packages/components/layouts/page/Mobile';
+
 import styles from './page.module.css';
-import { withMobileLayoutPage } from '../shared/components/layouts/page/Mobile';
 
 export interface Props {
   maintainer: string;

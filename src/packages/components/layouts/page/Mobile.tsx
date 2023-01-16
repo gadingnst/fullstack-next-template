@@ -1,4 +1,4 @@
-import clsxm from '@/modules/shared/utils/clsxm';
+import clsxm from '@/packages/utils/clsxm';
 import type { NextPage } from 'next';
 import { FunctionComponent, useMemo } from 'react';
 import { MainLayoutPage, LayoutConfigProps, UnknownProps } from './Main';
