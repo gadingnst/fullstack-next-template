@@ -1,9 +1,9 @@
 import { NextPage } from 'next';
 import { FunctionComponent, Fragment, PropsWithChildren, useMemo } from 'react';
 
-import Head from '@/modules/shared/components/base/Head';
+import Head from '@/packages/components/base/Head';
 import { SITE_NAME } from '@/configs/env';
-import clsxm from '@/modules/shared/utils/clsxm';
+import clsxm from '@/packages/utils/clsxm';
 
 export interface LayoutConfigProps {
   title: string;
