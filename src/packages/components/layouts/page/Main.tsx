@@ -1,12 +1,8 @@
-import { NextPage } from 'next';
-import { FunctionComponent, Fragment, PropsWithChildren, useMemo } from 'react';
-
-import Head from '@/packages/components/base/Head';
-import { SITE_NAME } from '@/configs/env';
+import { FunctionComponent, Fragment, PropsWithChildren } from 'react';
 import clsxm from '@/packages/utils/clsxm';
+import { IPageComponent } from '@/packages/components/layouts/page/types';
 
 export interface LayoutConfigProps {
-  title: string;
   className?: string;
 }
 
@@ -15,15 +11,10 @@ export type UnknownProps = Record<string, any>;
 export const MainLayoutPage: FunctionComponent<PropsWithChildren<LayoutConfigProps>> = (props) => {
   const {
     children,
-    className,
-    title: titleProps
+    className
   } = props;
-
-  const title = titleProps?.includes(SITE_NAME) ? titleProps : `${titleProps} | ${SITE_NAME}`;
-
   return (
     <Fragment>
-      <Head title={title} />
       <div className={clsxm(['flex flex-col min-h-screen', className])}>
         {children}
       </div>
@@ -38,17 +29,10 @@ export const MainLayoutPage: FunctionComponent<PropsWithChildren<LayoutConfigPro
  * @param layoutProps - The props to pass to the layout
  * @returns - NextPage
  */
-export const withMainLayoutPage = <T extends UnknownProps>(
-  PageComponent: NextPage<T>, layoutProps: LayoutConfigProps|((pageProps: T) => LayoutConfigProps)
-) => {
+export const withMainLayoutPage = <T extends UnknownProps>(PageComponent: IPageComponent<T>, layoutProps: LayoutConfigProps) => {
   const LayoutPage: FunctionComponent<T> = (pageProps) => {
-    const layoutPropsWithPageProps = useMemo(() => {
-      return typeof layoutProps === 'function'
-        ? layoutProps(pageProps) : layoutProps;
-    }, [pageProps]);
-
     return (
-      <MainLayoutPage {...layoutPropsWithPageProps}>
+      <MainLayoutPage {...layoutProps}>
         <PageComponent {...pageProps} />
       </MainLayoutPage>
     );

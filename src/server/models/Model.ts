@@ -10,6 +10,8 @@ import {
 const MONGODB_URI =
   `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`;
 
+const globalAny: any = global;
+
 abstract class Model<T> {
   protected abstract collectionName: string;
 
@@ -23,10 +25,10 @@ abstract class Model<T> {
     const client = new MongoClient(MONGODB_URI);
     const connect = () => client.connect().then(() => client.db(DB_NAME));
     if (IS_DEV) {
-      if (!global._db) {
-        global._db = await connect();
+      if (!globalAny._db) {
+        globalAny._db = await connect();
       }
-      db = global._db;
+      db = globalAny._db;
     } else {
       db = await connect();
     }
@@ -45,7 +47,7 @@ abstract class Model<T> {
 
   public async insert(data: T) {
     const collection = await this.connect();
-    const insert = await collection.insertOne(data);
+    const insert = await collection.insertOne(data as any);
     return insert;
   }
 

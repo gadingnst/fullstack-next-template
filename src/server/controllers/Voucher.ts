@@ -42,4 +42,6 @@ class VoucherController extends Controller {
   };
 }
 
-export default new VoucherController();
+const VoucherHandler = new VoucherController();
+
+export default VoucherHandler;

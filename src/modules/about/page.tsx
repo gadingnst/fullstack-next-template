@@ -1,34 +1,22 @@
 import Link from 'next/link';
 
 import Image from '@/packages/components/base/Image';
-import withSSRProps from '@/packages/middlewares/SSR/withSSRProps';
 import { withMobileLayoutPage } from '@/packages/components/layouts/page/Mobile';
 
 import styles from './page.module.css';
+import { NextPageProps } from '@/types/global';
+import asyncComponent from '@/packages/components/layouts/asyncComponent';
 
-export interface Props {
-  maintainer: string;
-  query?: any;
-}
-
-export const getServerSideProps = withSSRProps<Props>(async(ctx) => {
-  const { query } = ctx;
+const About = asyncComponent(async(props: NextPageProps) => {
+  const { searchParams } = props;
   const rawResult = await fetch('https://api.quran.gading.dev/', { cache: 'force-cache' });
   const result = await rawResult.json();
-  return {
-    props: {
-      maintainer: result.maintaner as string,
-      query
-    }
-  };
-});
 
-function About(props: Props) {
   return (
     <div className="flex justify-center items-center h-screen w-full">
       <main className="mt-10 md:-mt-10">
         <h1 className="text-center text-xl mb-10">
-          {props.maintainer}
+          {result.maintaner}
         </h1>
 
         <div className={styles.avatar}>
@@ -46,7 +34,7 @@ function About(props: Props) {
             Passed Query:
           </p>
           <p>
-            {JSON.stringify(props.query)}
+            {JSON.stringify(searchParams)}
           </p>
           <Link href="/" className="text-fuchsia-300 text-center mt-5 hover:underline underline-offset-4">
             Back to Homepage
@@ -55,9 +43,6 @@ function About(props: Props) {
       </main>
     </div>
   );
-}
+});
 
-export default withMobileLayoutPage(About, props => ({
-  title: `About ${props.maintainer}`,
-  classNameMobile: 'dark:shadow-blue-500 px-2'
-}));
+export default withMobileLayoutPage(About, {});

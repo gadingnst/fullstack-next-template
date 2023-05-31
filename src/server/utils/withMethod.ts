@@ -8,10 +8,10 @@ export type MethodModel = {
 };
 
 const withMethod = (handlers: MethodModel) => (req: NextApiRequest, res: NextApiResponse<HttpResponse>) => {
-  const { method } = req;
+  const { method = 'GET' } = req;
   if (method in handlers) {
-    const handler = handlers[method];
-    return handler(req, res);
+    const handler = handlers[method as HttpMethods];
+    return handler?.(req, res);
   }
   res.setHeader('Allow', Object.keys(handlers));
   return res.status(405).send({

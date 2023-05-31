@@ -1,3 +1,5 @@
+'use client';
+
 import type { ImageProps } from 'next/image';
 import { FunctionComponent, ReactEventHandler, useCallback, useMemo, useState } from 'react';
 import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
@@ -16,13 +18,14 @@ type Props = LazyLoadImageProps & {
 const Image: FunctionComponent<Props> = (props) => {
   const {
     src,
-    effect,
+    effect = 'opacity',
     size,
-    style,
-    className,
+    style = {},
+    className = '',
     wrapperClassName,
     placeholderSrc,
     onError,
+    onClick = () => void 0,
     ...lazyloadProps
   } = props;
 
@@ -54,6 +57,7 @@ const Image: FunctionComponent<Props> = (props) => {
       decoding="async"
       loading="lazy"
       {...lazyloadProps}
+      onClick={onClick}
       effect={effect}
       src={source}
       placeholderSrc={placeholder}
@@ -63,13 +67,6 @@ const Image: FunctionComponent<Props> = (props) => {
       wrapperClassName={clsxm(styles.wrapper, wrapperClassName)}
     />
   );
-};
-
-Image.defaultProps = {
-  className: '',
-  style: {},
-  effect: 'opacity',
-  onClick: () => void 0
 };
 
 export default Image;

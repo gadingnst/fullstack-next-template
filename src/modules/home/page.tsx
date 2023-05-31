@@ -1,26 +1,16 @@
-import { useEffect } from 'react';
 import Link from 'next/link';
 
 import Image from '@/packages/components/base/Image';
-import SVG from '@/packages/components/base/Image/SVG';
 import SVGRemote from '@/packages/components/base/Image/SVG/Remote';
+
+// TODO: solve svgr issue in app directory
+// import SVG from '@/packages/components/base/Image/SVG';
+// import IconVercel from '#/vercel.svg';
+
+import styles from './page.module.css';
 import { withMainLayoutPage } from '@/packages/components/layouts/page/Main';
 
-import IconVercel from '#/vercel.svg';
-import styles from './page.module.css';
-
 function Home() {
-  useEffect(() => {
-    const Aborter = new AbortController();
-    fetch('/api/voucher', { signal: Aborter.signal })
-      .then(response => response.json())
-      // eslint-disable-next-line no-console
-      .then(console.log);
-    return () => {
-      Aborter.abort();
-    };
-  }, []);
-
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -92,7 +82,8 @@ function Home() {
         >
           Powered by{' '}
           <span className={styles.logo}>
-            <SVG fill="currentColor" src={IconVercel} width={72} height={16} />
+            {/* <SVG fill="currentColor" src={IconVercel} width={72} height={16} /> */}
+            <SVGRemote src="/vercel.svg" width={72} height={16} />
           </span>
         </a>
         <SVGRemote src="https://gading.dev/assets/icons/app/logo-secondary.svg" size={32} />
@@ -101,6 +92,4 @@ function Home() {
   );
 }
 
-export default withMainLayoutPage(Home, {
-  title: 'Homepage'
-});
+export default withMainLayoutPage(Home, {});
