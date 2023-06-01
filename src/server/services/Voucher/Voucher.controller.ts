@@ -1,5 +1,5 @@
-import Controller from './Controller';
-import Voucher from '@/server/models/Voucher';
+import Controller from '@/server/libs/Controller';
+import VoucherModel from '@/server/services/Voucher/Voucher.model';
 
 class VoucherController extends Controller {
   /**
@@ -9,7 +9,7 @@ class VoucherController extends Controller {
    */
   public index = async() => {
     try {
-      const payload = await Voucher.all();
+      const payload = await VoucherModel.all();
       return this.sendJSON({
         code: 200,
         message: 'Success get all Vouchers.',
@@ -27,7 +27,7 @@ class VoucherController extends Controller {
       if (!name) errors.push('field "name" is required.');
       if (!expires) errors.push('field "expires" is required.');
       if (errors.length) return this.setError(400, errors, 'Validation error.');
-      const payload = await Voucher.insert({ name, expires });
+      const payload = await VoucherModel.insert({ name, expires });
       return this.sendJSON({
         code: 201,
         message: 'Success add Voucher.',

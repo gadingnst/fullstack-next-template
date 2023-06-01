@@ -1,5 +1,5 @@
 import asyncComponent from '@/packages/components/layouts/asyncComponent';
-import VoucherModel from '@/server/models/Voucher';
+import VoucherModel from '@/server/services/Voucher/Voucher.model';
 
 const VouchersResponse = asyncComponent(async() => {
   const vouchers = await VoucherModel.all();

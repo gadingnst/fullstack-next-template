@@ -1,4 +1,4 @@
-import Model from './Model';
+import Model from '@/server/libs/Model';
 
 export interface VoucherFields<T = string|number> {
   readonly _id?: T;
@@ -6,10 +6,10 @@ export interface VoucherFields<T = string|number> {
   expires: string;
 }
 
-class VoucherModelScheme extends Model<VoucherFields> {
+class VoucherModelDTO extends Model<VoucherFields> {
   protected collectionName = 'vouchers';
 }
 
-const VoucherModel = new VoucherModelScheme();
+const VoucherModel = new VoucherModelDTO();
 
 export default VoucherModel;
