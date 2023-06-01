@@ -7,7 +7,7 @@ import SVGRemote from '@/packages/components/base/Image/SVG/Remote';
 // import SVG from '@/packages/components/base/Image/SVG';
 // import IconVercel from '#/vercel.svg';
 
-import styles from './page.module.css';
+import styles from './home.page.module.css';
 import { withMainLayoutPage } from '@/packages/components/layouts/page/Main';
 import VouchersResponse from '@/modules/components/VoucherResponse';
 

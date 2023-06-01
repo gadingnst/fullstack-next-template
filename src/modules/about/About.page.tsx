@@ -1,7 +1,7 @@
 import { type NextPageProps } from '@/types/global';
 import { Suspense } from 'react';
 
-import AboutClient from '@/modules/about/Client';
+import AboutClient from '@/modules/about/AboutClient';
 import VouchersResponse from '@/modules/components/VoucherResponse';
 
 import { withMobileLayoutPage } from '@/packages/components/layouts/page/Mobile';

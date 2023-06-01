@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import Image from '@/packages/components/base/Image';
 
-import styles from './page.module.css';
+import styles from './about.page.module.css';
 import { PropsWithChildren, useState } from 'react';
 import useMounted from '@/packages/hooks/useMounted';
 import { NextPageProps } from '@/types/global';
