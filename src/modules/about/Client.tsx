@@ -51,7 +51,7 @@ function AboutClient(props: PropsWithChildren<Props>) {
           <p>
             {JSON.stringify(searchParams)}
           </p>
-          <Link href="/" className="text-fuchsia-300 text-center mt-5 hover:underline underline-offset-4">
+          <Link href="/" className="text-fuchsia-400 text-center mt-5 hover:underline underline-offset-4">
             Back to Homepage
           </Link>
         </div>
