@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
-import withMiddleware from '@/server/middlewares/Middleware';
 
 import { SECRET_APP_KEY } from '@/server/configs/env';
+import { createMiddleware } from '@/server/middlewares/Middleware';
 
 /**
- * create custom middleware with `withMiddleware HoF`
+ * create custom middleware with `createMiddleware HoF`
  */
-const withVerifyAppKey = withMiddleware((req, next) => {
+const withVerifyAppKey = createMiddleware((req, next) => {
   const query = new URL(req.url).searchParams;
   const key = query.get('key');
   if (key === SECRET_APP_KEY) return next();
