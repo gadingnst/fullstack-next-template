@@ -7,6 +7,10 @@ import { SITE_NAME } from '@/configs/env';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', adjustFontFallback: false });
 
+/**
+ * HTML Metadata in App Route
+ * @see https://nextjs.org/docs/app/api-reference/functions/generate-metadata#basic-fields
+ */
 export const metadata = {
   title: {
     default: SITE_NAME,
