@@ -35,7 +35,7 @@ function Home() {
           </Link>
         </p>
 
-        <Link className="text-fuchsia-300 text-center mt-5 mb-5 hover:underline underline-offset-4" href="/about?text=Hello%20World">
+        <Link className="text-fuchsia-400 text-center mt-5 mb-5 hover:underline underline-offset-4" href="/about?text=Hello%20World">
           About Page
         </Link>
 
