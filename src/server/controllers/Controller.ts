@@ -1,4 +1,4 @@
-import type { HttpResponse } from '@/server/types/Http';
+import { type HttpResponse } from '@/types/global';
 import { NextResponse } from 'next/server';
 import HttpError from '@/server/libs/HttpError';
 
