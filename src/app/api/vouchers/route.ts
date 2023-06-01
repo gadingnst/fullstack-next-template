@@ -1,5 +1,5 @@
 import VoucherHandler from '@/server/controllers/Voucher';
-import withVerifyAppKey from '@/server/middlewares/verify-app-key';
+import withVerifyAppKey from '@/server/middlewares/withVerifyAppKey';
 
 /** @route `/api/vouchers` */
 export const GET = VoucherHandler.index;
