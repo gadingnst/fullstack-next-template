@@ -1,11 +1,13 @@
 'use client';
 
 import { type VoucherFields } from '@/server/models/Voucher';
-import { useEffect, useState } from 'react';
+
+import { useState } from 'react';
+import useMounted from '@/packages/hooks/useMounted';
 
 function VouchersResponse() {
   const [vouchers, setVouchers] = useState<VoucherFields[]>([]);
-  useEffect(() => {
+  useMounted(() => {
     const Aborter = new AbortController();
     fetch('/api/vouchers', { signal: Aborter.signal })
       .then(response => response.json())
@@ -14,7 +16,7 @@ function VouchersResponse() {
     return () => {
       Aborter.abort();
     };
-  }, []);
+  });
   return (
     <code className="max-w-[380px] mb-16">
       {JSON.stringify(vouchers, null, 2)}
