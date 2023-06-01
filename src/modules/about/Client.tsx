@@ -56,10 +56,6 @@ function AboutClient(props: PropsWithChildren<Props>) {
           </Link>
         </div>
 
-        <p className="text-sm text-slate-400 mt-5 px-5 text-center mb-5">
-          Here&apos;s the data returned from the Database.
-        </p>
-
         {children}
       </main>
     </div>
