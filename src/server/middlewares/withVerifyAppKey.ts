@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 import { SECRET_APP_KEY } from '@/server/configs/env';
-import { createMiddleware } from '@/server/middlewares/Middleware';
+import { createMiddleware } from '@/server/libs/Middleware';
 
 /**
  * create custom middleware with `createMiddleware HoF`
