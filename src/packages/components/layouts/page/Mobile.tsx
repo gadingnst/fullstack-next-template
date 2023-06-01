@@ -1,30 +1,45 @@
+import { FunctionComponent, PropsWithChildren } from 'react';
 import clsxm from '@/packages/utils/clsxm';
-import type { NextPage } from 'next';
-import { FunctionComponent, useMemo } from 'react';
+
 import { MainLayoutPage, LayoutConfigProps, UnknownProps } from './Main';
+import { IPageComponent } from '@/packages/components/layouts/page/types';
 
 interface MobileLayoutConfigProps extends LayoutConfigProps {
   classNameMobile?: string;
 }
+
+const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>> = (props) => {
+  const {
+    classNameMobile,
+    children,
+    ...layoutPropsWithPageProps
+  } = props;
+  return (
+    <MainLayoutPage {...layoutPropsWithPageProps}>
+      <div
+        className={clsxm([
+          'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
+          classNameMobile
+        ])}
+      >
+        {children}
+      </div>
+    </MainLayoutPage>
+  );
+};
 
 /**
  * @param PageComponent - The page component to wrap with the layout
  * @param layoutProps - The props to pass to the layout
  * @returns - NextPage
  */
-export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: NextPage<T>, layoutProps?: MobileLayoutConfigProps|((pageProps: T) => MobileLayoutConfigProps)) => {
+export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: IPageComponent<T>, layoutProps: MobileLayoutConfigProps) => {
   const MobileLayoutPage: FunctionComponent<T> = (pageProps) => {
-    const layoutPropsWithPageProps = useMemo(() => {
-      return typeof layoutProps === 'function'
-        ? layoutProps(pageProps) : layoutProps;
-    }, [pageProps]);
-
     const {
       classNameMobile
-    } = layoutPropsWithPageProps;
-
+    } = layoutProps;
     return (
-      <MainLayoutPage {...layoutPropsWithPageProps}>
+      <MainLayoutPage {...layoutProps}>
         <div
           className={clsxm([
             'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
@@ -38,3 +53,5 @@ export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: Next
   };
   return MobileLayoutPage;
 };
+
+export default MobileLayout;

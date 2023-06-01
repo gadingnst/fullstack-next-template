@@ -1,3 +1,5 @@
+'use client';
+
 import type { ImageProps } from 'next/image';
 import { FunctionComponent, SVGAttributes } from 'react';
 import { useSize } from '../helpers';
@@ -16,10 +18,13 @@ export interface Props extends SVGAttributes<SVGElement> {
  * import YourSVG from '@/assets/to/path/your.svg';
  * <SVG src={YourSVG} size={32} />
  */
+// TODO: solve @svgr issue in app directory
 const SVG: FunctionComponent<Props> = (props) => {
   const {
     src: SVGComponent,
-    size,
+    size = 32,
+    className = '',
+    onClick = () => void 0,
     ...svgProps
   } = props;
 
@@ -33,16 +38,12 @@ const SVG: FunctionComponent<Props> = (props) => {
     /* @ts-ignore */
     <SVGComponent
       {...svgProps}
+      className={className}
+      onClick={onClick}
       width={width}
       height={height}
     />
   );
-};
-
-SVG.defaultProps = {
-  className: '',
-  size: 32,
-  onClick: () => void 0
 };
 
 export default SVG;

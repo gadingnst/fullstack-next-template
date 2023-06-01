@@ -1,3 +1,5 @@
+'use client';
+
 import { FunctionComponent, useCallback, useMemo, useRef } from 'react';
 import ReactInlineSVG, { Props as ReactInlineSVGProps } from 'react-inlinesvg';
 
@@ -20,10 +22,11 @@ export type Props = ReactInlineSVGProps & {
 const SVGRemote: FunctionComponent<Props> = (props) => {
   const {
     src,
-    size,
-    alt,
-    className,
-    placeholderSrc,
+    size = 32,
+    alt = 'SVG Fallback Image',
+    className = '',
+    placeholderSrc = '',
+    onClick = () => void 0,
     ...svgProps
   } = props;
 
@@ -52,6 +55,7 @@ const SVGRemote: FunctionComponent<Props> = (props) => {
     <ReactInlineSVG
       cacheRequests
       {...svgProps}
+      onClick={onClick}
       src={source}
       className={className}
       width={width}
@@ -70,14 +74,6 @@ const SVGRemote: FunctionComponent<Props> = (props) => {
       />
     </ReactInlineSVG>
   );
-};
-
-SVGRemote.defaultProps = {
-  className: '',
-  alt: 'SVG Fallback Image',
-  placeholderSrc: '',
-  size: 32,
-  onClick: () => void 0
 };
 
 export default SVGRemote;
