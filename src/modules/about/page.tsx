@@ -4,7 +4,7 @@ import Image from '@/packages/components/base/Image';
 import { withMobileLayoutPage } from '@/packages/components/layouts/page/Mobile';
 
 import styles from './page.module.css';
-import { NextPageProps } from '@/types/global';
+import { type NextPageProps } from '@/types/global';
 import asyncComponent from '@/packages/components/layouts/asyncComponent';
 
 const About = asyncComponent(async(props: NextPageProps) => {
@@ -45,4 +45,6 @@ const About = asyncComponent(async(props: NextPageProps) => {
   );
 });
 
-export default withMobileLayoutPage(About, {});
+export default withMobileLayoutPage(About, {
+  classNameMobile: 'shadow-violet-500 px-3'
+});

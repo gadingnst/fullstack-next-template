@@ -2,7 +2,7 @@ import { FunctionComponent, PropsWithChildren } from 'react';
 import clsxm from '@/packages/utils/clsxm';
 
 import { MainLayoutPage, LayoutConfigProps, UnknownProps } from './Main';
-import { IPageComponent } from '@/packages/components/layouts/page/types';
+import { NextPageComponent } from '@/types/global';
 
 interface MobileLayoutConfigProps extends LayoutConfigProps {
   classNameMobile?: string;
@@ -33,7 +33,7 @@ const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>
  * @param layoutProps - The props to pass to the layout
  * @returns - NextPage
  */
-export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: IPageComponent<T>, layoutProps: MobileLayoutConfigProps) => {
+export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps: MobileLayoutConfigProps) => {
   const MobileLayoutPage: FunctionComponent<T> = (pageProps) => {
     const {
       classNameMobile

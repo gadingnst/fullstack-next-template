@@ -1,6 +1,6 @@
 import { FunctionComponent, Fragment, PropsWithChildren } from 'react';
 import clsxm from '@/packages/utils/clsxm';
-import { IPageComponent } from '@/packages/components/layouts/page/types';
+import { NextPageComponent } from '@/types/global';
 
 export interface LayoutConfigProps {
   className?: string;
@@ -29,7 +29,7 @@ export const MainLayoutPage: FunctionComponent<PropsWithChildren<LayoutConfigPro
  * @param layoutProps - The props to pass to the layout
  * @returns - NextPage
  */
-export const withMainLayoutPage = <T extends UnknownProps>(PageComponent: IPageComponent<T>, layoutProps: LayoutConfigProps) => {
+export const withMainLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps: LayoutConfigProps) => {
   const LayoutPage: FunctionComponent<T> = (pageProps) => {
     return (
       <MainLayoutPage {...layoutProps}>
