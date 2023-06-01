@@ -9,7 +9,6 @@ import SVGRemote from '@/packages/components/base/Image/SVG/Remote';
 
 import styles from './page.module.css';
 import { withMainLayoutPage } from '@/packages/components/layouts/page/Main';
-import VouchersResponse from '@/modules/home/components/VoucherResponse';
 
 function Home() {
   return (
@@ -38,12 +37,6 @@ function Home() {
         <Link className="text-fuchsia-300 text-center mt-5 hover:underline underline-offset-4" href="/about?text=Hello%20World">
           About Page
         </Link>
-
-        <p className="text-sm text-slate-400 mt-5 px-5 text-center mb-5">
-          Here&apos;s the data returned from the API Route.
-        </p>
-
-        <VouchersResponse />
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
