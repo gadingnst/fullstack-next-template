@@ -9,6 +9,7 @@ import SVGRemote from '@/packages/components/base/Image/SVG/Remote';
 
 import styles from './page.module.css';
 import { withMainLayoutPage } from '@/packages/components/layouts/page/Main';
+import VouchersResponse from '@/modules/components/VoucherResponse';
 
 function Home() {
   return (
@@ -34,9 +35,12 @@ function Home() {
           </Link>
         </p>
 
-        <Link className="text-fuchsia-300 text-center mt-5 hover:underline underline-offset-4" href="/about?text=Hello%20World">
+        <Link className="text-fuchsia-300 text-center mt-5 mb-5 hover:underline underline-offset-4" href="/about?text=Hello%20World">
           About Page
         </Link>
+
+        {/* Example calling Server Component inside Server Component */}
+        <VouchersResponse />
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
