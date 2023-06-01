@@ -1,5 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import type { HttpResponse } from '@/server/types/Http';
 import Controller from './Controller';
 import Voucher from '@/server/models/Voucher';
 
@@ -7,37 +5,36 @@ class VoucherController extends Controller {
   /**
    * Use arrow function to create Controller method.
    * @see https://www.geeksforgeeks.org/arrow-functions-in-javascript/
-   * @param req NextApiRequest
-   * @param res NextApiResponse
+   * @param req Request
    */
-  public index = async(req: NextApiRequest, res: NextApiResponse<HttpResponse>) => {
+  public index = async() => {
     try {
       const payload = await Voucher.all();
-      this.sendJSON(res, {
+      return this.sendJSON({
         code: 200,
         message: 'Success get all Vouchers.',
         payload
       });
     } catch (err) {
-      this.handleError(res, err);
+      return this.handleError(err);
     }
   };
 
-  public insert = async(req: NextApiRequest, res: NextApiResponse<HttpResponse>) => {
-    const { name, expires } = req.body;
+  public insert = async(req: Request) => {
+    const { name, expires } = await req.json();
     try {
       const errors: string[] = [];
       if (!name) errors.push('field "name" is required.');
       if (!expires) errors.push('field "expires" is required.');
       if (errors.length) return this.setError(400, errors, 'Validation error.');
       const payload = await Voucher.insert({ name, expires });
-      this.sendJSON(res, {
+      return this.sendJSON({
         code: 201,
         message: 'Success add Voucher.',
         payload
       });
     } catch (err) {
-      this.handleError(res, err);
+      return this.handleError(err);
     }
   };
 }

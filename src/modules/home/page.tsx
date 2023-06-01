@@ -9,6 +9,7 @@ import SVGRemote from '@/packages/components/base/Image/SVG/Remote';
 
 import styles from './page.module.css';
 import { withMainLayoutPage } from '@/packages/components/layouts/page/Main';
+import VouchersResponse from '@/modules/home/components/VoucherResponse';
 
 function Home() {
   return (
@@ -29,8 +30,8 @@ function Home() {
 
         <p className={styles.description}>
           Visit the demo API{' '}
-          <Link href="/api/voucher">
-            <code className={styles.code}>/api/voucher</code>
+          <Link href="/api/vouchers">
+            <code className={styles.code}>/api/vouchers</code>
           </Link>
         </p>
 
@@ -38,9 +39,11 @@ function Home() {
           About Page
         </Link>
 
-        <p className="text-sm text-slate-400 mt-5 px-5 text-center mb-16">
-          See browser console if you want to see the data returned from the API.
+        <p className="text-sm text-slate-400 mt-5 px-5 text-center mb-5">
+          Here&apos;s the data returned from the API Route.
         </p>
+
+        <VouchersResponse />
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>

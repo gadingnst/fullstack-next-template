@@ -1,17 +1,20 @@
-import withMiddleware from '@/server/utils/withMiddleware';
+import { NextResponse } from 'next/server';
+import withMiddleware from '@/server/middlewares/Middleware';
+
 import { SECRET_APP_KEY } from '@/server/configs/env';
 
 /**
  * create custom middleware with `withMiddleware HoF`
  */
-const withVerifyAppKey = withMiddleware((req, res, next) => {
-  const { key } = req.query;
+const withVerifyAppKey = withMiddleware((req, next) => {
+  const query = new URL(req.url).searchParams;
+  const key = query.get('key');
   if (key === SECRET_APP_KEY) return next();
-  return res.status(400).send({
+  return NextResponse.json({
     code: 400,
     message: 'Bad request.',
     errors: ['Secret key invalid.']
-  });
+  }, { status: 400 });
 });
 
 export default withVerifyAppKey;

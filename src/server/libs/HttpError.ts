@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import type { NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
 class HttpError<T = any, E = string[]> extends Error {
   constructor(code: number, errors: E, message: string, payload?: T) {
@@ -8,17 +8,21 @@ class HttpError<T = any, E = string[]> extends Error {
     Object.setPrototypeOf(this, this.constructor.prototype);
   }
 
-  public static handle(res: NextApiResponse, err: Error|unknown) {
+  public static handle(err: Error|unknown) {
     if (err instanceof this) {
       const error = JSON.parse(err.message);
       console.error(error);
-      return res.status(error.code).send(error);
+      return NextResponse.json(error, {
+        status: error.code
+      });
     }
-    console.error(err);
-    return res.status(500).send({
-      code: 500,
+    const statusCode = 500;
+    return NextResponse.json({
+      code: statusCode,
       message: 'Internal server error.',
       errors: ['An unknown error in server has occured.']
+    }, {
+      status: statusCode
     });
   }
 }

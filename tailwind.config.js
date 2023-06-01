@@ -6,10 +6,9 @@ const keyframes = require('./design/keyframes');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    './src/packages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/modules/**/*.{js,jsx,ts,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}'
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
     extend: {
