@@ -1,7 +1,6 @@
-import asyncComponent from '@/packages/components/layouts/asyncComponent';
 import VoucherModel from '@/server/services/Voucher/Voucher.model';
 
-const VouchersResponse = asyncComponent(async() => {
+async function VouchersResponse() {
   const vouchers = await VoucherModel.all();
   return (
     <div className="bg-gray-800 p-2 rounded w-full max-w-[500px]">
@@ -13,6 +12,6 @@ const VouchersResponse = asyncComponent(async() => {
       </code>
     </div>
   );
-});
+}
 
 export default VouchersResponse;
