@@ -14,7 +14,7 @@ This `starter-template` is packed with:
 - ⚡️ Pre-setup ***backend things*** in `server/` folders.
 - 🪄 Pre-built ***utilities*** to handle common things in backend and frontend.
 - 🔥 Minimal dependencies & full of customization - Of course this template can be fully customize. You can delete that you don't need or change the DB from ***MongoDB*** to your ***very DB***.
-- 📦 Monorepo with [Turborepo](https://turbo.build/repo) - If you want to setup this template in Monorepo project, you can choose branch [with-turborepo](https://github.com/gadingnst/fullstack-next-template/tree/with-turborepo)
+- 📦 Monorepo with [Turborepo](https://turbo.build/repo) - If you want to setup this template in Monorepo project, you can visit [fullstack-next-template-turbo](https://github.com/gadingnst/fullstack-next-template-turbo)
 
 ## Getting Started
 
