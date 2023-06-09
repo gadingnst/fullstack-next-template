@@ -35,9 +35,7 @@ const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>
  */
 export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps: MobileLayoutConfigProps) => {
   const MobileLayoutPage: FunctionComponent<T> = (pageProps) => {
-    const {
-      classNameMobile
-    } = layoutProps;
+    const { classNameMobile } = layoutProps;
     return (
       <MainLayoutPage {...layoutProps}>
         <div

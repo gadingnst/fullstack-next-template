@@ -1,3 +1,5 @@
+'use client';
+
 import { useMemo } from 'react';
 
 type Props = {
@@ -8,6 +10,6 @@ type Props = {
 export const DEFAULT_PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 
 export const useSize = (size: string|number|undefined, { width, height }: Props) => useMemo(() => ({
-  width: width || size,
-  height: height || size
+  width: width || size || 'auto',
+  height: height || size || 'auto'
 }), [height, width, size]);

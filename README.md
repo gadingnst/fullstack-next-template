@@ -32,6 +32,10 @@ yarn dev
 pnpm dev
 ```
 
+## Recomendation for better development
+- [Install Tailwind CSS intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Enable CSS module auto-completion](https://github.com/mrmckeb/typescript-plugin-css-modules#visual-studio-code)
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.

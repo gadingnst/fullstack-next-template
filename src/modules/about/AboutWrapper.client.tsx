@@ -1,19 +1,19 @@
 'use client';
 
+import { PropsWithChildren, useState } from 'react';
 import Link from 'next/link';
 
-import Image from '@/packages/components/base/Image';
+import Image from '@/packages/components/base/Images/Image';
 
-import styles from './about.page.module.css';
-import { PropsWithChildren, useState } from 'react';
 import useMounted from '@/packages/hooks/useMounted';
 import { NextPageProps } from '@/types/global';
+import styles from './AboutWrapper.client.module.css';
 
 interface Props {
   searchParams: NextPageProps['searchParams'];
 }
 
-function AboutClient(props: PropsWithChildren<Props>) {
+function AboutWrapper(props: PropsWithChildren<Props>) {
   const { children, searchParams } = props;
   const [maintainer, setMaintainer] = useState('');
 
@@ -62,4 +62,4 @@ function AboutClient(props: PropsWithChildren<Props>) {
   );
 }
 
-export default AboutClient;
+export default AboutWrapper;

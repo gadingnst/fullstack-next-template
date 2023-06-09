@@ -1,15 +1,12 @@
 import Link from 'next/link';
 
-import Image from '@/packages/components/base/Image';
-import SVGRemote from '@/packages/components/base/Image/SVG/Remote';
+import Image from '@/packages/components/base/Images/Image';
 
-// TODO: solve svgr issue in app directory
-// import SVG from '@/packages/components/base/Image/SVG';
-// import IconVercel from '#/vercel.svg';
-
-import styles from './home.page.module.css';
-import { withMainLayoutPage } from '@/packages/components/layouts/page/Main';
+import styles from './Home.page.module.css';
+import { withMainLayoutPage } from '@/packages/components/layouts/Page/Main';
 import VouchersResponse from '@/modules/components/VoucherResponse';
+import Footer from '@/modules/home/Footer.client';
+import ButtonLink from '@/packages/components/base/Navigations/ButtonLink';
 
 function Home() {
   return (
@@ -24,8 +21,8 @@ function Home() {
           src="https://gading.dev/media/banners/1.jpg"
           width={500}
           alt="Vercel Logo"
-          className="flex justify-center items-center rounded-md sm:min-h-[300px] h-full"
-          wrapperClassName="mt-10 max-w-full -mb-10"
+          className="flex justify-center items-center min-h-[150px] sm:min-h-[300px] rounded h-full object-fit"
+          wrapperClassName="mt-10 max-w-full -mb-10 rounded"
         />
 
         <p className={styles.description}>
@@ -35,9 +32,9 @@ function Home() {
           </Link>
         </p>
 
-        <Link className="text-fuchsia-400 text-center mt-5 mb-5 hover:underline underline-offset-4" href="/about?text=Hello%20World">
+        <ButtonLink className="bg-fuchsia-400 text-center mt-5 mb-5 hover:underline underline-offset-4" href="/about?text=Hello%20World">
           About Page
-        </Link>
+        </ButtonLink>
 
         {/* Example calling Server Component inside Server Component */}
         <VouchersResponse />
@@ -73,21 +70,7 @@ function Home() {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <Image src="https://gading.dev/assets/icons/app/logo.png" size={32} alt="Vercel Logo" />
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            {/* <SVG fill="currentColor" src={IconVercel} width={72} height={16} /> */}
-            <SVGRemote src="/vercel.svg" width={72} height={16} />
-          </span>
-        </a>
-        <SVGRemote src="https://gading.dev/assets/icons/app/logo-secondary.svg" size={32} />
-      </footer>
+      <Footer />
     </div>
   );
 }

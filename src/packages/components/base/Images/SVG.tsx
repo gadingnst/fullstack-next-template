@@ -2,7 +2,7 @@
 
 import type { ImageProps } from 'next/image';
 import { FunctionComponent, SVGAttributes } from 'react';
-import { useSize } from '../helpers';
+import { useSize } from './helpers';
 
 export interface Props extends SVGAttributes<SVGElement> {
   src: ImageProps['src'];
