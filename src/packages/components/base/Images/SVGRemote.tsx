@@ -3,7 +3,7 @@
 import { FunctionComponent, useCallback, useMemo, useRef } from 'react';
 import ReactInlineSVG, { Props as ReactInlineSVGProps } from 'react-inlinesvg';
 
-import { DEFAULT_PLACEHOLDER, useSize } from '../helpers';
+import { DEFAULT_PLACEHOLDER, useSize } from './helpers';
 
 export type Props = ReactInlineSVGProps & {
   src: string;

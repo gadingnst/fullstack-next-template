@@ -6,7 +6,7 @@ import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-compone
 
 import clsxm from '@/packages/utils/clsxm';
 import { DEFAULT_PLACEHOLDER, useSize } from './helpers';
-import styles from './index.module.css';
+import styles from './Image.module.css';
 
 type Props = LazyLoadImageProps & {
   src: ImageProps['src'];
@@ -61,10 +61,18 @@ const Image: FunctionComponent<Props> = (props) => {
       effect={effect}
       src={source}
       placeholderSrc={placeholder}
-      className={className}
       onError={handleError}
-      style={{ ...style, height, width }}
-      wrapperClassName={clsxm(styles.wrapper, wrapperClassName)}
+      width={width}
+      height={height}
+      style={style}
+      className={clsxm([
+        'object-contain',
+        className
+      ])}
+      wrapperClassName={clsxm([
+        styles.wrapper,
+        wrapperClassName
+      ])}
     />
   );
 };

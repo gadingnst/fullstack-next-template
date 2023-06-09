@@ -13,7 +13,6 @@ function webpack(config) {
     },
     {
       test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
       resourceQuery: { not: [/url/] },
       use: [{
         loader: '@svgr/webpack',
