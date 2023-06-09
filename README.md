@@ -32,10 +32,6 @@ yarn dev
 pnpm dev
 ```
 
-## Recomendation for better development
-- [Install Tailwind CSS intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-- [Enable CSS module auto-completion](https://github.com/mrmckeb/typescript-plugin-css-modules#visual-studio-code)
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
@@ -43,6 +39,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 `API routes` with [Route handlers](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) can be accessed on [http://localhost:3000/api/vouchers](http://localhost:3000/api/vouchers). This endpoint can be edited in `app/api/vouchers/route.ts`.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Recomendation for better development
+- [Install Tailwind CSS intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Enable CSS module auto-completion](https://github.com/mrmckeb/typescript-plugin-css-modules#visual-studio-code)
 
 ## Learn More
 
