@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import VouchersResponse from '@/modules/components/VoucherResponse';
 import AboutWrapper from '@/modules/about/AboutWrapper.client';
 
-import { withMobileLayoutPage } from '@/packages/components/layouts/Page/Mobile';
+import { withMobileLayoutPage } from '@/packages/components/layouts/Pages/Mobile';
 
 function About(props: NextPageProps) {
   const { searchParams } = props;

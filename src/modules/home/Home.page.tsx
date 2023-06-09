@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from '@/packages/components/base/Images/Image';
 
 import styles from './Home.page.module.css';
-import { withMainLayoutPage } from '@/packages/components/layouts/Page/Main';
+import { withMainLayoutPage } from '@/packages/components/layouts/Pages/Main';
 import VouchersResponse from '@/modules/components/VoucherResponse';
 import Footer from '@/modules/home/Footer.client';
 import ButtonLink from '@/packages/components/base/Navigations/ButtonLink';
