@@ -3,7 +3,7 @@
 import { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
 import Link from 'next/link';
 import Button, { Props as ButtonProps } from '@/packages/components/base/Buttons/Button';
-import clsxm from '@/packages/utils/clsxm';
+import cxm from '@/packages/utils/cxm';
 
 export interface Props extends ButtonProps {
   href: string;
@@ -28,7 +28,7 @@ export const ButtonLink: FunctionComponent<Props> = (props) => {
   return (
     <Link
       href={href}
-      className={clsxm([
+      className={cxm([
         block ? 'w-full' : ''
       ])}
     >

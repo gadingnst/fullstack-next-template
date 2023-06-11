@@ -4,9 +4,7 @@ import { Suspense } from 'react';
 import VouchersResponse from '@/modules/components/VoucherResponse';
 import AboutWrapper from '@/modules/about/AboutWrapper.client';
 
-import { withMobileLayoutPage } from '@/packages/components/layouts/Pages/Mobile';
-
-function About(props: NextPageProps) {
+function AboutPage(props: NextPageProps) {
   const { searchParams } = props;
   return (
     <AboutWrapper searchParams={searchParams}>
@@ -18,6 +16,4 @@ function About(props: NextPageProps) {
   );
 }
 
-export default withMobileLayoutPage(About, {
-  classNameMobile: 'shadow-violet-500 px-3'
-});
+export default AboutPage;

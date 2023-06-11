@@ -28,8 +28,8 @@ function AboutWrapper(props: PropsWithChildren<Props>) {
   });
 
   return (
-    <div className="flex justify-center items-center h-screen w-full">
-      <main className="mt-10 md:-mt-10">
+    <div className="flex justify-center items-center w-full mb-10">
+      <main className="mt-10">
         <h1 className="text-center text-xl mb-10">
           {maintainer || 'Loading...'}
         </h1>
