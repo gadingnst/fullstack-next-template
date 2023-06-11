@@ -1,6 +1,6 @@
 'use client';
 
-import clsxm from '@/packages/utils/clsxm';
+import cxm from '@/packages/utils/cxm';
 import { FunctionComponent, HTMLAttributes, PropsWithChildren } from 'react';
 
 export interface Props extends HTMLAttributes<HTMLButtonElement> {
@@ -33,7 +33,7 @@ export const Button: FunctionComponent<PropsWithChildren<Props>> = (props) => {
       {...attrProps}
       disabled={disabled}
       onClick={handleClick}
-      className={clsxm([
+      className={cxm([
         'bg-blue-500 text-white py-2 px-4 rounded-lg',
         'disabled:cursor-not-allowed disabled:opacity-60',
         'text-center relative',

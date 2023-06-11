@@ -1,5 +1,5 @@
 import { FunctionComponent, Fragment, PropsWithChildren } from 'react';
-import clsxm from '@/packages/utils/clsxm';
+import cxm from '@/packages/utils/cxm';
 import { NextPageComponent } from '@/types/global';
 
 export interface LayoutConfigProps {
@@ -15,7 +15,7 @@ export const MainLayoutPage: FunctionComponent<PropsWithChildren<LayoutConfigPro
   } = props;
   return (
     <Fragment>
-      <div className={clsxm(['flex flex-col min-h-screen', className])}>
+      <div className={cxm(['flex flex-col min-h-screen', className])}>
         {children}
       </div>
     </Fragment>
@@ -29,7 +29,7 @@ export const MainLayoutPage: FunctionComponent<PropsWithChildren<LayoutConfigPro
  * @param layoutProps - The props to pass to the layout
  * @returns - NextPage
  */
-export const withMainLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps: LayoutConfigProps) => {
+export const withMainLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps?: LayoutConfigProps) => {
   const LayoutPage: FunctionComponent<T> = (pageProps) => {
     return (
       <MainLayoutPage {...layoutProps}>

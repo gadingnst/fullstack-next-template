@@ -6,8 +6,8 @@ import { twMerge } from 'tailwind-merge';
  * @param classes - class names
  * @returns {string} - class names joined by space
  */
-function clsxm(...classes: ClassValue[]): string {
+function cxm(...classes: ClassValue[]): string {
   return twMerge(clsx(...classes));
 }
 
-export default clsxm;
+export default cxm;

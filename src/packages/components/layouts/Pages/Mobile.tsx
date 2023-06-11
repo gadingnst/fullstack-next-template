@@ -1,5 +1,5 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
-import clsxm from '@/packages/utils/clsxm';
+import cxm from '@/packages/utils/cxm';
 
 import { MainLayoutPage, LayoutConfigProps, UnknownProps } from './Main';
 import { NextPageComponent } from '@/types/global';
@@ -17,7 +17,7 @@ const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>
   return (
     <MainLayoutPage {...layoutPropsWithPageProps}>
       <div
-        className={clsxm([
+        className={cxm([
           'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
           classNameMobile
         ])}
@@ -33,13 +33,13 @@ const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>
  * @param layoutProps - The props to pass to the layout
  * @returns - NextPage
  */
-export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps: MobileLayoutConfigProps) => {
+export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps?: MobileLayoutConfigProps) => {
   const MobileLayoutPage: FunctionComponent<T> = (pageProps) => {
-    const { classNameMobile } = layoutProps;
+    const { classNameMobile } = layoutProps || {};
     return (
       <MainLayoutPage {...layoutProps}>
         <div
-          className={clsxm([
+          className={cxm([
             'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
             classNameMobile
           ])}
