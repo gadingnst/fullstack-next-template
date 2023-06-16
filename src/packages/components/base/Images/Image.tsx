@@ -60,11 +60,11 @@ const Image: FunctionComponent<Props> = (props) => {
       onClick={onClick}
       effect={effect}
       src={source}
-      placeholderSrc={placeholder}
       onError={handleError}
       width={width}
       height={height}
       style={{ ...style, height, width }}
+      placeholderSrc={placeholderSrc === '' ? undefined : placeholder}
       className={cxm([
         'object-contain',
         height ? `h-[${height}px]` : 'h-auto',
