@@ -32,6 +32,7 @@
     }
   },
   "include": [
+    "src/types/declaration.d.ts",
     "next-env.d.ts",
     "next.config.js",
     "src/**/*.module.css",
