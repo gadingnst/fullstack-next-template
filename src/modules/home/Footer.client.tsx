@@ -1,9 +1,4 @@
-'use client';
-
 import Image from '@/packages/components/base/Images/Image';
-import SVG from '@/packages/components/base/Images/SVG';
-import SVGRemote from '@/packages/components/base/Images/SVGRemote';
-
 import IconVercel from '#/vercel.svg';
 import styles from './Footer.client.module.css';
 
@@ -18,10 +13,9 @@ function Footer() {
       >
           Powered by{' '}
         <span className={styles.logo}>
-          <SVG fill="currentColor" src={IconVercel} width={72} height={16} />
+          <IconVercel fill="currentColor" width={72} height={16} />
         </span>
       </a>
-      <SVGRemote src="https://gading.dev/assets/icons/app/logo-secondary.svg" size={32} />
     </footer>
   );
 }
