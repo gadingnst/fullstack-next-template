@@ -7,6 +7,7 @@ This `starter-template` is packed with:
 - ⚛️ React 18.
 - ✨ TypeScript.
 - 💨 Tailwind CSS 3 - Pre-setup with PostCSS Nesting and Import.
+- 👀 SVGR - Pre-Configured import SVG directly transform to React Component with type definitions
 - 📈 Path Alias - Import your module in `src` using `@/` prefix, and in `public` using `#/`.
 - 📏 ESLint - Find and fix problems in your code.
 - 🐶 Husky - Run scripts on your staged files before they are committed.
