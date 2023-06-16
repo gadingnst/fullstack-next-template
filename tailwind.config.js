@@ -11,6 +11,11 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
+    fontFamily: {
+      'sans': ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
+      'serif': ['var(--font-inter)', 'ui-serif', 'Georgia'],
+      'mono': ['var(--font-inter)', 'ui-monospace', 'SFMono-Regular']
+    },
     extend: {
       keyframes,
       backgroundImage: {
