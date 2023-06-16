@@ -64,13 +64,17 @@ const Image: FunctionComponent<Props> = (props) => {
       onError={handleError}
       width={width}
       height={height}
-      style={style}
+      style={{ ...style, height, width }}
       className={cxm([
         'object-contain',
+        height ? `h-[${height}px]` : 'h-auto',
+        width ? `w-[${width}px]` : 'w-auto',
         className
       ])}
       wrapperClassName={cxm([
         styles.wrapper,
+        height ? `h-[${height}px]` : 'h-auto',
+        width ? `w-[${width}px]` : 'w-auto',
         wrapperClassName
       ])}
     />
