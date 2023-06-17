@@ -11,6 +11,7 @@
   }
 
   &[class*="blur"] {
+    @apply blur-lg;
     &[class*="lazy-load-image-loaded"] {
       transition: filter .3s;
       @apply blur-none delay-300;

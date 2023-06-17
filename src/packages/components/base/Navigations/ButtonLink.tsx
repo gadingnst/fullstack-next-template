@@ -1,5 +1,3 @@
-'use client';
-
 import { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
 import Link from 'next/link';
 import Button, { Props as ButtonProps } from '@/packages/components/base/Buttons/Button';
@@ -14,6 +12,7 @@ export interface Props extends ButtonProps {
 export const ButtonLink: FunctionComponent<Props> = (props) => {
   const {
     href,
+    target,
     disabled,
     block = false,
     ...otherProps
@@ -28,6 +27,7 @@ export const ButtonLink: FunctionComponent<Props> = (props) => {
   return (
     <Link
       href={href}
+      target={target}
       className={cxm([
         block ? 'w-full' : ''
       ])}
