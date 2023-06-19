@@ -2,6 +2,7 @@
 function headers() {
   return [
     {
+      // Enable CORS
       source: '/api/(.*)',
       headers: [
         { key: 'Access-Control-Allow-Credentials', value: 'true' },
