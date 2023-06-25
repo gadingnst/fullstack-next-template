@@ -5,6 +5,8 @@ import { FunctionComponent, ReactEventHandler, useCallback, useMemo, useState } 
 import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
 
 import cxm from '@/packages/utils/cxm';
+import useUpdated from '@/packages/hooks/useUpdated';
+
 import { DEFAULT_PLACEHOLDER, useSize } from './helpers';
 import styles from './Image.module.css';
 
@@ -50,6 +52,10 @@ const Image: FunctionComponent<Props> = (props) => {
     setSource(placeholder);
     onError?.(event);
   }, [onError, placeholder]);
+
+  useUpdated(() => {
+    setSource(imgSrc);
+  }, [imgSrc]);
 
   return (
     <LazyLoadImage
