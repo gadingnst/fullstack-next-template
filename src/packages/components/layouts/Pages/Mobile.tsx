@@ -8,7 +8,7 @@ interface MobileLayoutConfigProps extends LayoutConfigProps {
   classNameMobile?: string;
 }
 
-const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>> = (props) => {
+const MobileLayoutPage: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>> = (props) => {
   const {
     classNameMobile,
     children,
@@ -34,22 +34,14 @@ const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>
  * @returns - NextPage
  */
 export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps?: MobileLayoutConfigProps) => {
-  const MobileLayoutPage: FunctionComponent<T> = (pageProps) => {
-    const { classNameMobile } = layoutProps || {};
+  const MobileLayout: FunctionComponent<T> = (pageProps) => {
     return (
-      <MainLayoutPage {...layoutProps}>
-        <div
-          className={cxm([
-            'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
-            classNameMobile
-          ])}
-        >
-          <PageComponent {...pageProps} />
-        </div>
-      </MainLayoutPage>
+      <MobileLayoutPage {...layoutProps ?? {}}>
+        <PageComponent {...pageProps} />
+      </MobileLayoutPage>
     );
   };
-  return MobileLayoutPage;
+  return MobileLayout;
 };
 
-export default MobileLayout;
+export default MobileLayoutPage;
