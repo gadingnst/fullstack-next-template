@@ -1,4 +1,4 @@
-import Controller from '@/server/libs/Controller';
+import Controller from '@/server/packages/base/Controller';
 import VoucherModel from '@/server/services/Voucher/Voucher.model';
 
 class VoucherController extends Controller {

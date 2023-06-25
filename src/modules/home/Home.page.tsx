@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Image from '@/packages/components/base/Images/Image';
 
 import styles from './Home.page.module.css';
-import VouchersResponse from '@/modules/components/VoucherResponse';
-import Footer from '@/modules/home/Footer.client';
+import VouchersResponse from '@/modules/voucher/components/VoucherResponse';
+import Footer from '@/modules/home/components/Footer';
 import ButtonLink from '@/packages/components/base/Navigations/ButtonLink';
 
 function HomePage() {
