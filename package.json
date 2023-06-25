@@ -1,7 +1,19 @@
 {
   "name": "@gadingnst/fullstack-next-template",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "author": "Sutan Gading Fadhillah Nasution <contact@gading.dev>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gadingnst/fullstack-next-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gadingnst/fullstack-next-template/issues"
+  },
+  "packageManager": "npm@9.7.2",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +24,7 @@
   },
   "dependencies": {
     "mongodb": "^5.6.0",
-    "next": "13.4.6",
+    "next": "13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-lazy-load-image-component": "^1.6.0"
@@ -20,15 +32,15 @@
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",
     "@types/node": "^20.3.1",
-    "@types/react": "^18.2.12",
-    "@types/react-dom": "^18.2.5",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
     "@types/react-lazy-load-image-component": "^1.5.3",
-    "@typescript-eslint/eslint-plugin": "^5.59.11",
-    "@typescript-eslint/parser": "^5.59.11",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
     "autoprefixer": "^10.4.14",
     "clsx": "^1.2.1",
-    "eslint": "^8.42.0",
-    "eslint-config-next": "^13.4.6",
+    "eslint": "^8.43.0",
+    "eslint-config-next": "^13.4.7",
     "husky": "^8.0.3",
     "postcss": "^8.4.24",
     "postcss-import": "^15.1.0",
