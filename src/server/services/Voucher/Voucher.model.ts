@@ -1,4 +1,4 @@
-import Model from '@/server/libs/Model';
+import Model from '@/server/packages/base/Model';
 
 export interface VoucherFields<T = string|number> {
   readonly _id?: T;
