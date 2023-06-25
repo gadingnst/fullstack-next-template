@@ -10,6 +10,10 @@
   "bugs": {
     "url": "https://github.com/gadingnst/fullstack-next-template/issues"
   },
+  "packageManager": "npm@9.7.2",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
