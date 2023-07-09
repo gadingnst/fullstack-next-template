@@ -38,6 +38,12 @@ function HomePage() {
         {/* Example calling Server Component inside Server Component */}
         <VouchersResponse />
 
+        <hr className="w-full max-w-lg my-8" />
+
+        <ButtonLink className="bg-blue-500 mb-5 text-center hover:underline underline-offset-4" href="https://github.com/gadingnst/fullstack-next-template/generate">
+          Use this Template
+        </ButtonLink>
+
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
