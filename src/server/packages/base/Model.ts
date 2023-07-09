@@ -5,7 +5,7 @@ import {
   DB_NAME,
   DB_PASSWORD,
   IS_DEV
-} from '@/server/configs/env';
+} from '@/configs/env';
 
 const MONGODB_URI =
   `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`;
