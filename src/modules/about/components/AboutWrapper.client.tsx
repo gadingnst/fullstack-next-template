@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from '@/packages/components/base/Images/Image';
 
 import useMounted from '@/packages/hooks/useMounted';
-import { NextPageProps } from '@/types/global';
+import { NextPageProps } from '@/@types/global';
 import styles from './AboutWrapper.client.module.css';
 
 interface Props {

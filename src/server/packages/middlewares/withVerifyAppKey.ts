@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { SECRET_APP_KEY } from '@/server/configs/env';
+import { SECRET_APP_KEY } from '@/configs/env';
 import { createMiddleware } from '@/server/packages/base/Middleware';
 
 /**

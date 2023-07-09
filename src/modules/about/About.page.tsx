@@ -1,4 +1,4 @@
-import { type NextPageProps } from '@/types/global';
+import { type NextPageProps } from '@/@types/global';
 import { Suspense } from 'react';
 
 import VouchersResponse from '@/modules/voucher/components/VoucherResponse';
