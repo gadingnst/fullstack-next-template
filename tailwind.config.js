@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const keyframes = require('./design/keyframes');
-
 /** @see https://tailwindcss.com/docs/configuration */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -17,7 +15,7 @@ module.exports = {
       'mono': ['var(--font-inter)', 'ui-monospace', 'SFMono-Regular']
     },
     extend: {
-      keyframes,
+      keyframes: require('./design/keyframes'),
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
