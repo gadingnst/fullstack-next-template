@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-
 /** @see https://tailwindcss.com/docs/configuration */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -23,5 +21,5 @@ module.exports = {
       }
     }
   },
-  plugins: [require('@tailwindcss/typography')]
+  plugins: []
 };
