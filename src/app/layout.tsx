@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', adjustFontFa
 export const metadata = {
   title: {
     default: SITE_NAME,
-    template: `%s - ${SITE_NAME}`
+    template: `%s | ${SITE_NAME}`
   }
 } satisfies Metadata;
 
