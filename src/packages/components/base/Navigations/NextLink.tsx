@@ -6,7 +6,7 @@ type NextLinkProps = PropsWithChildren<Omit<AnchorHTMLAttributes<HTMLAnchorEleme
   & LinkProps
   & React.RefAttributes<HTMLAnchorElement>>;
 
-interface Props extends NextLinkProps {
+export interface Props extends NextLinkProps {
   disabled?: boolean;
 }
 

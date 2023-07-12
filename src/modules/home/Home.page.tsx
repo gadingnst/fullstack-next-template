@@ -1,11 +1,10 @@
-import Link from 'next/link';
-
 import Image from '@/packages/components/base/Images/Image';
-
-import styles from './Home.page.module.css';
-import VouchersResponse from '@/modules/voucher/components/VoucherResponse';
-import Footer from '@/modules/home/components/Footer';
+import NextLink from '@/packages/components/base/Navigations/NextLink';
 import ButtonLink from '@/packages/components/base/Navigations/ButtonLink';
+
+import Footer from '@/modules/home/components/Footer';
+import VouchersResponse from '@/modules/voucher/components/VoucherResponse';
+import styles from './Home.page.module.css';
 
 function HomePage() {
   return (
@@ -26,12 +25,12 @@ function HomePage() {
 
         <p className={styles.description}>
           Visit the demo API{' '}
-          <Link href="/api/vouchers">
+          <NextLink href="/api/vouchers">
             <code className={styles.code}>/api/vouchers</code>
-          </Link>
+          </NextLink>
         </p>
 
-        <ButtonLink className="bg-fuchsia-400 text-center mt-5 mb-5 hover:underline underline-offset-4" href="/about?text=Hello%20World">
+        <ButtonLink className="bg-fuchsia-400 text-center mt-5 mb-5" href="/about?text=Hello%20World">
           About Page
         </ButtonLink>
 
@@ -40,7 +39,7 @@ function HomePage() {
 
         <hr className="w-full max-w-lg my-8" />
 
-        <ButtonLink className="bg-blue-500 mb-5 text-center hover:underline underline-offset-4" href="https://github.com/gadingnst/fullstack-next-template/generate">
+        <ButtonLink className="bg-blue-500 mb-5 text-center" href="https://github.com/gadingnst/fullstack-next-template/generate">
           Use this Template
         </ButtonLink>
 

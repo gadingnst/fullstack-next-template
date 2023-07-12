@@ -1,11 +1,10 @@
 import { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
-import Link from 'next/link';
+import NextLink from '@/packages/components/base/Navigations/NextLink';
 import Button, { Props as ButtonProps } from '@/packages/components/base/Buttons/Button';
 import cxm from '@/packages/utils/cxm';
 
 export interface Props extends ButtonProps {
   href: string;
-  block?: boolean;
   target?: HTMLAttributeAnchorTarget;
 }
 
@@ -14,26 +13,36 @@ export const ButtonLink: FunctionComponent<Props> = (props) => {
     href,
     target,
     disabled,
+    className,
     block = false,
+    children,
+    text,
     ...otherProps
   } = props;
 
-  const Content = <Button {...otherProps} block={block} disabled={disabled} />;
-
   if (disabled || !href) {
-    return Content;
+    return (
+      <Button {...otherProps} block={block} className={className} disabled={disabled}>
+        {children || text}
+      </Button>
+    );
   }
 
   return (
-    <Link
+    <NextLink
       href={href}
       target={target}
+      disabled={disabled}
       className={cxm([
-        block ? 'w-full' : ''
+        'bg-blue-500 text-white py-2 px-4 rounded-lg',
+        'text-center relative',
+        'hover:underline underline-offset-4 decoration-dashed',
+        block && 'w-full',
+        className
       ])}
     >
-      {Content}
-    </Link>
+      {children || text}
+    </NextLink>
   );
 };
 
