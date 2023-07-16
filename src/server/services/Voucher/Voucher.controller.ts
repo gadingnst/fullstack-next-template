@@ -1,7 +1,7 @@
 import Controller from '@/server/packages/base/Controller';
 import VoucherModel from '@/server/services/Voucher/Voucher.model';
 
-class VoucherController extends Controller {
+class CVoucher extends Controller {
   /**
    * Use arrow function to create Controller method.
    * @see https://www.geeksforgeeks.org/arrow-functions-in-javascript/
@@ -39,6 +39,6 @@ class VoucherController extends Controller {
   };
 }
 
-const VoucherHandler = new VoucherController();
+const VoucherController = new CVoucher();
 
-export default VoucherHandler;
+export default VoucherController;

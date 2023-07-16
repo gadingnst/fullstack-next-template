@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable react-hooks/exhaustive-deps */
 import { RefObject, useCallback } from 'react';
 import useMounted from './useMounted';
