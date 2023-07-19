@@ -1,9 +1,9 @@
 'use client';
 
-import { type HTMLAttributes, type PropsWithChildren, forwardRef } from 'react';
+import { type PropsWithChildren, type ButtonHTMLAttributes, forwardRef } from 'react';
 import cxm from '@/packages/utils/cxm';
 
-export interface Props extends HTMLAttributes<HTMLButtonElement> {
+export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   block?: boolean;
   text?: string;
