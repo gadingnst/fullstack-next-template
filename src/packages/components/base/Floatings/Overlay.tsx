@@ -1,9 +1,6 @@
 'use client';
 
-import {
-  HTMLAttributes,
-  PropsWithChildren
-} from 'react';
+import type { HTMLAttributes, PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
 
 import BrowserRender from '@/packages/components/base/Displays/BrowserRender';
@@ -12,8 +9,8 @@ import cxm from '@/packages/utils/cxm';
 import styles from './Overlay.module.css';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
+  show: boolean;
   className?: string;
-  show?: boolean;
   onClick?: () => void;
 }
 
