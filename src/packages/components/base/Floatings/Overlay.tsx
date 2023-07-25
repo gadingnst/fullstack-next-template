@@ -20,8 +20,8 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  */
 function Overlay(props: PropsWithChildren<Props>) {
   const {
+    show,
     children,
-    show = false,
     className = '',
     ...attrProps
   } = props;

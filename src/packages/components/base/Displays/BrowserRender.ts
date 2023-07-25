@@ -15,7 +15,7 @@ function BrowserRender({ children, placeholder }: PropsWithChildren<Props>) {
     setOnClient(true);
   });
 
-  return onClient ? children : (placeholder ?? null);
+  return onClient ? children : placeholder;
 }
 
 export default BrowserRender;
