@@ -1,4 +1,4 @@
-import NextLink, { Props } from '@/packages/components/base/Navigations/NextLink';
+import NextLink, { type Props } from '@/packages/components/base/Navigations/NextLink';
 import cxm from '@/packages/utils/cxm';
 
 function Link(props: Props) {

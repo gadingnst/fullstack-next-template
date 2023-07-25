@@ -1,6 +1,7 @@
-import { FunctionComponent, Fragment, PropsWithChildren } from 'react';
+import { type FunctionComponent, type PropsWithChildren, Fragment } from 'react';
+
+import type { NextPageComponent } from '@/@types/global';
 import cxm from '@/packages/utils/cxm';
-import { NextPageComponent } from '@/@types/global';
 
 export interface LayoutConfigProps {
   className?: string;

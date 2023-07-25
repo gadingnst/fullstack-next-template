@@ -1,5 +1,6 @@
-import type { NextPageProps } from '@/@types/global';
 import type { Metadata, ResolvingMetadata } from 'next';
+
+import type { NextPageProps } from '@/@types/global';
 
 type ICallbackGenerateMetadata<T> = (props: NextPageProps<T>, parent: ResolvingMetadata) => Promise<Metadata>;
 

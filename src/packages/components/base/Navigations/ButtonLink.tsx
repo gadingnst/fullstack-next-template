@@ -1,6 +1,7 @@
-import { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
+import type { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
+
+import Button, { type Props as ButtonProps } from '@/packages/components/base/Buttons/Button';
 import NextLink from '@/packages/components/base/Navigations/NextLink';
-import Button, { Props as ButtonProps } from '@/packages/components/base/Buttons/Button';
 import cxm from '@/packages/utils/cxm';
 
 export interface Props extends ButtonProps {
@@ -22,7 +23,12 @@ export const ButtonLink: FunctionComponent<Props> = (props) => {
 
   if (disabled || !href) {
     return (
-      <Button {...otherProps} block={block} className={className} disabled={disabled}>
+      <Button
+        {...otherProps}
+        block={block}
+        className={className}
+        disabled={disabled}
+      >
         {children || text}
       </Button>
     );

@@ -1,8 +1,8 @@
 'use client';
 
 import { PropsWithChildren, useState } from 'react';
-import type { NextPageProps } from '@/@types/global';
 
+import type { NextPageProps } from '@/@types/global';
 import Image from '@/packages/components/base/Images/Image';
 import Link from '@/packages/components/base/Navigations/Link';
 import useMounted from '@/packages/hooks/useMounted';

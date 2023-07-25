@@ -1,9 +1,9 @@
-import Image from '@/packages/components/base/Images/Image';
-import NextLink from '@/packages/components/base/Navigations/NextLink';
-import ButtonLink from '@/packages/components/base/Navigations/ButtonLink';
-
 import Footer from '@/modules/home/components/Footer';
 import VouchersResponse from '@/modules/voucher/components/VoucherResponse';
+import Image from '@/packages/components/base/Images/Image';
+import ButtonLink from '@/packages/components/base/Navigations/ButtonLink';
+import NextLink from '@/packages/components/base/Navigations/NextLink';
+
 import styles from './Home.page.module.css';
 
 function HomePage() {

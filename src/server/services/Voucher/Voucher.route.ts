@@ -1,5 +1,5 @@
-import VoucherController from '@/server/services/Voucher/Voucher.controller';
 import withVerifyAppKey from '@/server/packages/middlewares/withVerifyAppKey';
+import VoucherController from '@/server/services/Voucher/Voucher.controller';
 
 /**
  * @route `/api/vouchers`

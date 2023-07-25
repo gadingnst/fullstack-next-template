@@ -1,29 +1,27 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
+
+import { NextPageComponent } from '@/@types/global';
 import cxm from '@/packages/utils/cxm';
 
 import { MainLayoutPage, LayoutConfigProps, UnknownProps } from './Main';
-import { NextPageComponent } from '@/@types/global';
 
-interface MobileLayoutConfigProps extends LayoutConfigProps {
-  classNameMobile?: string;
-}
+type MobileLayoutConfigProps = LayoutConfigProps;
 
 const MobileLayoutPage: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>> = (props) => {
   const {
-    classNameMobile,
     children,
+    className,
     ...layoutWithPageProps
   } = props;
   return (
-    <MainLayoutPage {...layoutWithPageProps}>
-      <div
-        className={cxm([
-          'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
-          classNameMobile
-        ])}
-      >
-        {children}
-      </div>
+    <MainLayoutPage
+      {...layoutWithPageProps}
+      className={cxm([
+        'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
+        className
+      ])}
+    >
+      {children}
     </MainLayoutPage>
   );
 };
