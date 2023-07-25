@@ -1,0 +1,15 @@
+.overlay {
+  animation: fade-in 200ms ease-in-out;
+  animation-fill-mode: forwards;
+  z-index: 1250;
+  @apply flex justify-center items-center inset-0 fixed w-full h-screen opacity-0 bg-opacity-75 z-50;
+}
+
+@keyframes :local(fade-in) {
+  0% {
+    @apply opacity-0;
+  }
+  100% {
+    @apply opacity-100
+  }
+}

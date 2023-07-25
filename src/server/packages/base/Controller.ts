@@ -1,5 +1,6 @@
-import { type HttpResponse } from '@/@types/global';
 import { NextResponse } from 'next/server';
+
+import { type HttpResponse } from '@/@types/global';
 import HttpError from '@/server/packages/base/HttpError';
 
 abstract class Controller<Body = unknown> extends NextResponse<Body> {

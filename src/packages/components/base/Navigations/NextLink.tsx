@@ -1,5 +1,6 @@
 import Link, { type LinkProps } from 'next/link';
-import { AnchorHTMLAttributes, PropsWithChildren } from 'react';
+import type { AnchorHTMLAttributes, PropsWithChildren } from 'react';
+
 import cxm from '@/packages/utils/cxm';
 
 type NextLinkProps = PropsWithChildren<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>

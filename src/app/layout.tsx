@@ -2,10 +2,10 @@ import '@/styles/bundle.css';
 
 import { Inter } from 'next/font/google';
 import { FC, PropsWithChildren } from 'react';
-import { SITE_NAME } from '@/configs/env';
-import { withMetadata } from '@/packages/utils/metadata';
 
+import { SITE_NAME } from '@/configs/env';
 import GitHubBadge from '@/packages/components/base/Floatings/GithubBadge';
+import { withMetadata } from '@/packages/utils/metadata';
 
 const inter = Inter({
   subsets: ['latin'],

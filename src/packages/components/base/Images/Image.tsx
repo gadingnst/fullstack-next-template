@@ -1,11 +1,11 @@
 'use client';
 
 import type { ImageProps } from 'next/image';
-import { FunctionComponent, ReactEventHandler, useCallback, useMemo, useState } from 'react';
-import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
+import { type FunctionComponent, type ReactEventHandler, useCallback, useMemo, useState } from 'react';
+import { type LazyLoadImageProps, LazyLoadImage } from 'react-lazy-load-image-component';
 
-import cxm from '@/packages/utils/cxm';
 import useUpdated from '@/packages/hooks/useUpdated';
+import cxm from '@/packages/utils/cxm';
 
 import { DEFAULT_PLACEHOLDER, useSize } from './helpers';
 import styles from './Image.module.css';

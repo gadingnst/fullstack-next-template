@@ -1,7 +1,7 @@
 'use client';
 
 /* eslint-disable react-hooks/exhaustive-deps */
-import { EffectCallback, DependencyList, useEffect, useRef } from 'react';
+import { type EffectCallback, type DependencyList, useEffect, useRef } from 'react';
 
 /**
  * React hooks that run useEffect() hooks only when the dependency changes,

@@ -1,5 +1,6 @@
-import Image from '@/packages/components/base/Images/Image';
 import IconVercel from '#/vercel.svg';
+import Image from '@/packages/components/base/Images/Image';
+
 import styles from './Footer.module.css';
 
 function Footer() {

@@ -1,4 +1,11 @@
-import { Collection, MongoClient, Document, ObjectId, Db } from 'mongodb';
+import {
+  type Db,
+  type Document,
+  type Collection,
+  MongoClient,
+  ObjectId
+} from 'mongodb';
+
 import {
   DB_HOST,
   DB_USER,
