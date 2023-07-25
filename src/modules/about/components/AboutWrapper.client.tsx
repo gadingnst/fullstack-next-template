@@ -3,6 +3,7 @@
 import { PropsWithChildren, useState } from 'react';
 
 import type { NextPageProps } from '@/@types/global';
+import Message from '@/modules/about/components/Message';
 import Image from '@/packages/components/base/Images/Image';
 import Link from '@/packages/components/base/Navigations/Link';
 import useMounted from '@/packages/hooks/useMounted';
@@ -51,6 +52,7 @@ function AboutWrapper(props: PropsWithChildren<Props>) {
           <p>
             {JSON.stringify(searchParams)}
           </p>
+          <Message messages={searchParams.text?.toString()} />
           <Link href="/" className="text-fuchsia-400 text-center mt-5">
             Back to Homepage
           </Link>
