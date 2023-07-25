@@ -42,7 +42,7 @@ function Dialog(props: PropsWithChildren<Props>) {
       >
         <div className="flex justify-between items-center mb-3 font-semibold">
           {typeof title !== 'string' ? title : (
-            <p className="text-base-content text-lg">{title}</p>
+            <p className="text-lg">{title}</p>
           )}
           {closeable && (
             <button
