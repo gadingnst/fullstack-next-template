@@ -1,4 +1,4 @@
-import Footer from '@/modules/homes/components/Footer';
+import Footer from '@/modules/Home/components/Footer';
 import JokeList from '@/modules/Joke/components/JokeList';
 import Image from '@/packages/components/base/Images/Image';
 import ButtonLink from '@/packages/components/base/Navigations/ButtonLink';
