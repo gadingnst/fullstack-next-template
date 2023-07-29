@@ -1,4 +1,4 @@
-import AboutPage from '@/modules/About/About.page';
+import AboutPage from '@/modules/abouts/About.page';
 import { withMobileLayoutPage } from '@/packages/components/layouts/Pages/Mobile';
 import { withMetadata } from '@/packages/utils/metadata';
 

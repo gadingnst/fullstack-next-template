@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import { type NextPageProps } from '@/@types/global';
-import AboutWrapper from '@/modules/About/components/AboutWrapper.client';
+import AboutWrapper from '@/modules/abouts/components/AboutWrapper.client';
 import JokeList from '@/modules/Joke/components/JokeList';
 
 function AboutPage(props: NextPageProps) {
