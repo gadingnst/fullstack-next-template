@@ -1,5 +1,5 @@
-import Footer from '@/modules/home/components/Footer';
-import VouchersResponse from '@/modules/voucher/components/VoucherResponse';
+import Footer from '@/modules/Home/components/Footer';
+import JokeList from '@/modules/Joke/components/JokeList';
 import Image from '@/packages/components/base/Images/Image';
 import ButtonLink from '@/packages/components/base/Navigations/ButtonLink';
 import NextLink from '@/packages/components/base/Navigations/NextLink';
@@ -25,23 +25,23 @@ function HomePage() {
 
         <p className={styles.description}>
           Visit the demo API{' '}
-          <NextLink href="/api/vouchers">
-            <code className={styles.code}>/api/vouchers</code>
+          <NextLink href="/api/jokes">
+            <code className={styles.code}>/api/jokes</code>
           </NextLink>
         </p>
 
-        <ButtonLink className="bg-fuchsia-400 text-center mt-5 mb-5" href="/about?text=Hello%20World">
+        <ButtonLink className="bg-fuchsia-400 text-center mt-5" href="/about?text=Hello%20World">
           About Page
         </ButtonLink>
 
-        {/* Example calling Server Component inside Server Component */}
-        <VouchersResponse />
-
         <hr className="w-full max-w-lg my-8" />
 
-        <ButtonLink className="bg-blue-500 mb-5 text-center" href="https://github.com/gadingnst/fullstack-next-template/generate">
+        <ButtonLink className="bg-blue-500 mb-8 text-center" href="https://github.com/gadingnst/fullstack-next-template/generate">
           Use this Template
         </ButtonLink>
+
+        {/* Example calling Server Component inside Server Component */}
+        <JokeList />
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>

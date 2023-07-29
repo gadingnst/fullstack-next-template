@@ -1,7 +1,7 @@
-import Controller from '@/server/packages/base/Controller';
-import VoucherModel from '@/server/services/Voucher/Voucher.model';
+import JokeModel from '@/modules/Joke/services/Joke.model';
+import Controller from '@/packages/server/base/Controller';
 
-class CVoucher extends Controller {
+class CJoke extends Controller {
   /**
    * Use arrow function to create Controller method.
    * @see https://www.geeksforgeeks.org/arrow-functions-in-javascript/
@@ -9,10 +9,10 @@ class CVoucher extends Controller {
    */
   public index = async() => {
     try {
-      const payload = await VoucherModel.all();
+      const payload = await JokeModel.all();
       return this.sendJSON({
         code: 200,
-        message: 'Success get all Vouchers.',
+        message: 'Success get all jokes.',
         payload
       });
     } catch (err) {
@@ -21,16 +21,17 @@ class CVoucher extends Controller {
   };
 
   public insert = async(req: Request) => {
-    const { name, expires } = await req.json();
     try {
+      const body = await req.json();
+      const { setup, delivery } = body;
       const errors: string[] = [];
-      if (!name) errors.push('field "name" is required.');
-      if (!expires) errors.push('field "expires" is required.');
+      if (!setup) errors.push('field "setup" is required.');
+      if (!delivery) errors.push('field "delivery" is required.');
       if (errors.length) return this.setError(400, errors, 'Validation error.');
-      const payload = await VoucherModel.insert({ name, expires });
+      const payload = await JokeModel.insert({ setup, delivery });
       return this.sendJSON({
         code: 201,
-        message: 'Success add Voucher.',
+        message: 'Success add new Joke.',
         payload
       });
     } catch (err) {
@@ -39,6 +40,6 @@ class CVoucher extends Controller {
   };
 }
 
-const VoucherController = new CVoucher();
+const JokeController = new CJoke();
 
-export default VoucherController;
+export default JokeController;

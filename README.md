@@ -12,7 +12,7 @@ This `starter-template` is packed with:
 - 📏 ESLint - Find and fix problems in your code.
 - 🐶 Husky - Run scripts on your staged files before they are committed.
 - 🧩 Pre-built ***components*** to handle dynamic Lazyload, Image and SVG in `packages/components/base`.
-- ⚡️ Pre-setup ***backend things*** in `server/` folders.
+- ⚡️ Pre-setup ***backend things*** in `packages/server/` folders.
 - 🪄 Pre-built ***utilities*** to handle common things in backend and frontend.
 - 🔥 Minimal dependencies & full of customization - Of course this template can be fully customize. You can delete that you don't need or change the DB from ***MongoDB*** to your ***very DB***.
 - 📦 Monorepo with [Turborepo](https://turbo.build/repo) - If you want to setup this template in Monorepo project, you can visit [fullstack-next-template-turbo](https://github.com/gadingnst/fullstack-next-template-turbo)
@@ -37,7 +37,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-`API routes` with [Route handlers](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) can be accessed on [http://localhost:3000/api/vouchers](http://localhost:3000/api/vouchers). This endpoint can be edited in `app/api/vouchers/route.ts`.
+`API routes` with [Route handlers](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) can be accessed on [http://localhost:3000/api/jokes](http://localhost:3000/api/jokes). This endpoint can be edited in `app/api/jokes/route.ts`.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 import { type HttpResponse } from '@/@types/global';
-import HttpError from '@/server/packages/base/HttpError';
+import HttpError from '@/packages/server/base/HttpError';
 
 abstract class Controller<Body = unknown> extends NextResponse<Body> {
   protected sendJSON<T>(data: HttpResponse<T>) {
@@ -15,7 +15,7 @@ abstract class Controller<Body = unknown> extends NextResponse<Body> {
   }
 
   protected handleError(error: Error|unknown) {
-    return HttpError.handle(error);
+    return HttpError.handle(error as Error);
   }
 }
 
