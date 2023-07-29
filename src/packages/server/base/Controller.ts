@@ -15,7 +15,7 @@ abstract class Controller<Body = unknown> extends NextResponse<Body> {
   }
 
   protected handleError(error: Error|unknown) {
-    return HttpError.handle(error);
+    return HttpError.handle(error as Error);
   }
 }
 
