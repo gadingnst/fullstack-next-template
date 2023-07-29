@@ -1,1 +1,1 @@
-export * from '@/server/services/Voucher/Voucher.route';
+export * from '@/modules/Voucher/services/Voucher.route';

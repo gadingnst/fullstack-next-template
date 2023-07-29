@@ -1,4 +1,4 @@
-import VoucherModel from '@/server/services/Voucher/Voucher.model';
+import VoucherModel from '@/modules/Voucher/services/Voucher.model';
 
 async function VouchersResponse() {
   const vouchers = await VoucherModel.all();

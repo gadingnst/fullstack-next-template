@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 
 import { type NextPageProps } from '@/@types/global';
-import AboutWrapper from '@/modules/about/components/AboutWrapper.client';
-import VouchersResponse from '@/modules/voucher/components/VoucherResponse';
+import AboutWrapper from '@/modules/About/components/AboutWrapper.client';
+import VouchersResponse from '@/modules/Voucher/components/VoucherResponse';
 
 function AboutPage(props: NextPageProps) {
   const { searchParams } = props;

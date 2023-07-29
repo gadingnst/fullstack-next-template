@@ -1,5 +1,5 @@
-import Footer from '@/modules/home/components/Footer';
-import VouchersResponse from '@/modules/voucher/components/VoucherResponse';
+import Footer from '@/modules/Home/components/Footer';
+import VouchersResponse from '@/modules/Voucher/components/VoucherResponse';
 import Image from '@/packages/components/base/Images/Image';
 import ButtonLink from '@/packages/components/base/Navigations/ButtonLink';
 import NextLink from '@/packages/components/base/Navigations/NextLink';

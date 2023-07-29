@@ -1,5 +1,5 @@
-import Controller from '@/server/packages/base/Controller';
-import VoucherModel from '@/server/services/Voucher/Voucher.model';
+import VoucherModel from '@/modules/Voucher/services/Voucher.model';
+import Controller from '@/packages/server/base/Controller';
 
 class CVoucher extends Controller {
   /**

@@ -3,7 +3,7 @@
 import { PropsWithChildren, useState } from 'react';
 
 import type { NextPageProps } from '@/@types/global';
-import Message from '@/modules/about/components/Message';
+import Message from '@/modules/About/components/Message';
 import Image from '@/packages/components/base/Images/Image';
 import Link from '@/packages/components/base/Navigations/Link';
 import useMounted from '@/packages/hooks/useMounted';
