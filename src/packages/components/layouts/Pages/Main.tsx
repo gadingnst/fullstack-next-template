@@ -1,7 +1,7 @@
 import { type FunctionComponent, type PropsWithChildren, Fragment } from 'react';
 
 import type { NextPageComponent } from '@/@types/global';
-import cxm from '@/packages/utils/cxm';
+import cn from '@/packages/utils/cn';
 
 export interface LayoutConfigProps {
   className?: string;
@@ -16,7 +16,7 @@ export const MainLayoutPage: FunctionComponent<PropsWithChildren<LayoutConfigPro
   } = props;
   return (
     <Fragment>
-      <div className={cxm(['flex flex-col min-h-screen', className])}>
+      <div className={cn(['flex flex-col min-h-screen', className])}>
         {children}
       </div>
     </Fragment>

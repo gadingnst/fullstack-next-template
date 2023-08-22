@@ -3,7 +3,9 @@ import { NextResponse } from 'next/server';
 import { type HttpResponse } from '@/@types/global';
 import HttpError from '@/packages/server/base/HttpError';
 
-abstract class Controller<Body = unknown> extends NextResponse<Body> {
+abstract class Controller {
+  protected response = NextResponse;
+
   protected sendJSON<T>(data: HttpResponse<T>) {
     return NextResponse.json(data, {
       status: data.code

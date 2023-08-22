@@ -1,7 +1,7 @@
 import Link, { type LinkProps } from 'next/link';
 import type { AnchorHTMLAttributes, PropsWithChildren } from 'react';
 
-import cxm from '@/packages/utils/cxm';
+import cn from '@/packages/utils/cn';
 
 type NextLinkProps = PropsWithChildren<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>
   & LinkProps
@@ -16,7 +16,7 @@ function NextLink(props: Props) {
   return (
     <Link
       {...props}
-      className={cxm([
+      className={cn([
         disabled && 'opacity-60 pointer-events-none cursor-not-allowed',
         className
       ])}

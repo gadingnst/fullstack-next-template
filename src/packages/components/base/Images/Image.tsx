@@ -5,7 +5,7 @@ import { type FunctionComponent, type ReactEventHandler, useCallback, useMemo, u
 import { type LazyLoadImageProps, LazyLoadImage } from 'react-lazy-load-image-component';
 
 import useUpdated from '@/packages/hooks/useUpdated';
-import cxm from '@/packages/utils/cxm';
+import cn from '@/packages/utils/cn';
 
 import { DEFAULT_PLACEHOLDER, useSize } from './helpers';
 import styles from './Image.module.css';
@@ -71,13 +71,13 @@ const Image: FunctionComponent<Props> = (props) => {
       height={height}
       style={{ ...style, height, width }}
       placeholderSrc={placeholderSrc === '' ? undefined : placeholder}
-      className={cxm([
+      className={cn([
         'object-contain',
         height ? `h-[${height}px]` : 'h-auto',
         width ? `w-[${width}px]` : 'w-auto',
         className
       ])}
-      wrapperClassName={cxm([
+      wrapperClassName={cn([
         styles.wrapper,
         height ? `h-[${height}px]` : 'h-auto',
         width ? `w-[${width}px]` : 'w-auto',

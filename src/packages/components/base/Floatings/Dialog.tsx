@@ -3,7 +3,7 @@
 import { type PropsWithChildren, type ReactNode, useCallback } from 'react';
 
 import Overlay from '@/packages/components/base/Floatings/Overlay';
-import cxm from '@/packages/utils/cxm';
+import cn from '@/packages/utils/cn';
 
 interface Props {
   title: ReactNode;
@@ -34,7 +34,7 @@ function Dialog(props: PropsWithChildren<Props>) {
     <Overlay show={show} onClick={handleClose}>
       <div
         {...otherProps}
-        className={cxm([
+        className={cn([
           'shadow-xl rounded-xl p-4 relative min-w-[328px]',
           'bg-white dark:bg-slate-700',
           className
@@ -46,7 +46,7 @@ function Dialog(props: PropsWithChildren<Props>) {
           )}
           {closeable && (
             <button
-              className={cxm([
+              className={cn([
                 'right-2 top-2 px-2 rounded',
                 'hover:bg-gray-300 dark:hover:bg-gray-500'
               ])}

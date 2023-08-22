@@ -2,7 +2,7 @@
 
 import { type PropsWithChildren, type ButtonHTMLAttributes, forwardRef } from 'react';
 
-import cxm from '@/packages/utils/cxm';
+import cn from '@/packages/utils/cn';
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -35,7 +35,7 @@ export const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>((p
       ref={ref}
       disabled={disabled}
       onClick={handleClick}
-      className={cxm([
+      className={cn([
         'bg-blue-500 text-white py-2 px-4 rounded-lg',
         'disabled:cursor-not-allowed disabled:opacity-60',
         'text-center relative',

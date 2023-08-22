@@ -2,7 +2,7 @@ import type { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
 
 import Button, { type Props as ButtonProps } from '@/packages/components/base/Buttons/Button';
 import NextLink from '@/packages/components/base/Navigations/NextLink';
-import cxm from '@/packages/utils/cxm';
+import cn from '@/packages/utils/cn';
 
 export interface Props extends ButtonProps {
   href: string;
@@ -39,7 +39,7 @@ export const ButtonLink: FunctionComponent<Props> = (props) => {
       href={href}
       target={target}
       disabled={disabled}
-      className={cxm([
+      className={cn([
         'bg-blue-500 text-white py-2 px-4 rounded-lg',
         'text-center relative',
         'hover:underline underline-offset-4 decoration-dashed',

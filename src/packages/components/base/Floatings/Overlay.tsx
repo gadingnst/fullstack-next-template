@@ -4,7 +4,7 @@ import type { HTMLAttributes, PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
 
 import BrowserRender from '@/packages/components/base/Displays/BrowserRender';
-import cxm from '@/packages/utils/cxm';
+import cn from '@/packages/utils/cn';
 
 import styles from './Overlay.module.css';
 
@@ -29,7 +29,7 @@ function Overlay(props: PropsWithChildren<Props>) {
   const Component = (
     <div
       {...attrProps}
-      className={cxm([
+      className={cn([
         styles.overlay,
         'bg-black bg-opacity-75',
         className

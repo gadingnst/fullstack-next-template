@@ -1,7 +1,7 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
 
 import { NextPageComponent } from '@/@types/global';
-import cxm from '@/packages/utils/cxm';
+import cn from '@/packages/utils/cn';
 
 import { MainLayoutPage, LayoutConfigProps, UnknownProps } from './Main';
 
@@ -16,8 +16,8 @@ const MobileLayoutPage: FunctionComponent<PropsWithChildren<MobileLayoutConfigPr
   return (
     <MainLayoutPage
       {...layoutWithPageProps}
-      className={cxm([
-        'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
+      className={cn([
+        'relative max-w-[500px] mx-auto w-full shadow-xl',
         className
       ])}
     >

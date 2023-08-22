@@ -9,9 +9,10 @@ class HttpError<T = any, E = string[]> extends Error {
   }
 
   public static handle(err: Error) {
+    console.error(err);
+
     if (err instanceof this) {
       const error = JSON.parse(err.message);
-      console.error(error);
       return NextResponse.json(error, {
         status: error.code
       });
