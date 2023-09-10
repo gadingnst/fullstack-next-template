@@ -30,7 +30,7 @@
     "react-lazy-load-image-component": "^1.6.0"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.0.1",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.4.9",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.6",
