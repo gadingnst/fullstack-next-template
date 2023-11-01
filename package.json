@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "mongodb": "^6.0.0",
-    "next": "13.4.13",
+    "next": "14.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-lazy-load-image-component": "^1.6.0"
