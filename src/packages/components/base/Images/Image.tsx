@@ -73,14 +73,14 @@ const Image: FunctionComponent<Props> = (props) => {
       placeholderSrc={placeholderSrc === '' ? undefined : placeholder}
       className={cn([
         'object-contain',
-        height ? `h-[${height}px]` : 'h-auto',
-        width ? `w-[${width}px]` : 'w-auto',
+        height ? (typeof height === 'number' ? `h-[${height}px]` : `h-[${height}]`) : 'h-auto',
+        width ? (typeof width === 'number' ? `w-[${width}px]` : `w-[${width}]`) : 'w-auto',
         className
       ])}
       wrapperClassName={cn([
         styles.wrapper,
-        height ? `h-[${height}px]` : 'h-auto',
-        width ? `w-[${width}px]` : 'w-auto',
+        height ? (typeof height === 'number' ? `h-[${height}px]` : `h-[${height}]`) : 'h-auto',
+        width ? (typeof width === 'number' ? `w-[${width}px]` : `w-[${width}]`) : 'w-auto',
         wrapperClassName
       ])}
     />
