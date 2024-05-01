@@ -25,14 +25,14 @@
   "dependencies": {
     "mongodb": "^6.4.0",
     "next": "14.1.0",
-    "react": "18.2.0",
+    "react": "18.3.1",
     "react-dom": "18.2.0",
     "react-lazy-load-image-component": "^1.6.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.11.25",
-    "@types/react": "^18.2.61",
+    "@types/react": "^18.3.1",
     "@types/react-dom": "^18.2.18",
     "@types/react-lazy-load-image-component": "^1.5.3",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
