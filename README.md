@@ -3,10 +3,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Features
 This `starter-template` is packed with:
 
-- 🎉 Next.js 13 (with [App Directory](https://nextjs.org/docs/app)).
-- ⚛️ React 18.
+- 🎉 Next.js (with [App Directory](https://nextjs.org/docs/app)).
+- ⚛️ React.
 - ✨ TypeScript.
-- 💨 Tailwind CSS 3 - Pre-setup with PostCSS Nesting and Import.
+- 💨 Tailwind CSS - Pre-setup with PostCSS Nesting and Import.
 - 👀 SVGR - Pre-Configured import SVG directly transform to React Component with type definitions
 - 📈 Path Alias - Import your module in `src` using `@/` prefix, and in `public` using `#/`.
 - 📏 ESLint - Find and fix problems in your code.
