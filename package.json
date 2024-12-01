@@ -40,7 +40,7 @@
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^15.0.2",
+    "eslint-config-next": "^15.0.3",
     "husky": "^9.1.6",
     "postcss": "^8.4.47",
     "postcss-import": "^16.1.0",
