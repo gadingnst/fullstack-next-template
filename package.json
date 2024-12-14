@@ -41,7 +41,7 @@
     "clsx": "^2.1.1",
     "eslint": "^8.57.0",
     "eslint-config-next": "^15.0.2",
-    "husky": "^9.1.6",
+    "husky": "^9.1.7",
     "postcss": "^8.4.47",
     "postcss-import": "^16.1.0",
     "tailwind-merge": "^2.5.2",
