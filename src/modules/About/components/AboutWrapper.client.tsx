@@ -3,6 +3,7 @@
 import { PropsWithChildren, useState } from 'react';
 
 import type { NextPageProps } from '@/@types/global';
+import { getAboutQuran } from '@/modules/About/api/about';
 import Message from '@/modules/About/components/Message';
 import Image from '@/packages/components/base/Images/Image';
 import Link from '@/packages/components/base/Navigations/Link';
@@ -20,9 +21,9 @@ function AboutWrapper(props: PropsWithChildren<Props>) {
 
   useMounted(() => {
     const Aborter = new AbortController();
-    fetch('https://api.quran.gading.dev/', { signal: Aborter.signal })
-      .then(raw => raw.json())
-      .then(data => setMaintainer(data.maintaner));
+    getAboutQuran(Aborter.signal).then((data) => {
+      setMaintainer(data.maintaner);
+    });
     return () => {
       Aborter.abort();
     };

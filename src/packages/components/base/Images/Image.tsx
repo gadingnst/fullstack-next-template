@@ -2,9 +2,9 @@
 
 import type { ImageProps } from 'next/image';
 import { type FunctionComponent, type ReactEventHandler, useCallback, useMemo, useState } from 'react';
-import { type LazyLoadImageProps, LazyLoadImage } from 'react-lazy-load-image-component';
 
 import useUpdated from '@/packages/hooks/useUpdated';
+import LazyLoadImage, { LazyLoadImageProps } from '@/packages/libs/LazyLoadImage/components/LazyLoadImage';
 import cn from '@/packages/utils/cn';
 
 import { DEFAULT_PLACEHOLDER, useSize } from './helpers';
