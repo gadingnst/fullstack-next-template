@@ -1,7 +1,5 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
-
-import LazyLoadComponent, { LazyLoadComponentProps } from '@/packages/libs/LazyLoadImage/components/LazyLoadComponent';
-import trackWindowScroll from '@/packages/libs/LazyLoadImage/hoc/trackWindowScroll';
+import { LazyLoadComponent, LazyLoadComponentProps, trackWindowScroll } from 'react-lazy-load-image-component';
 
 export type Props = LazyLoadComponentProps;
 

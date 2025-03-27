@@ -23,6 +23,7 @@
     "lint:fix": "tsc --noEmit && eslint src --ignore-pattern 'src/public' --fix"
   },
   "dependencies": {
+    "@gadingnst/react-lazy-load-image-component": "^1.6.2",
     "mongodb": "^6.12.0",
     "next": "15.1.0",
     "react": "19.0.0",
@@ -35,6 +36,7 @@
     "@types/node": "22.10.2",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
+    "@types/react-lazy-load-image-component": "^1.6.4",
     "@typescript-eslint/eslint-plugin": "8.18.0",
     "@typescript-eslint/parser": "8.18.0",
     "autoprefixer": "^10.4.20",

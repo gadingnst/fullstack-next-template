@@ -1,5 +1,8 @@
 import { BaseHttpResponse, BaseHttpConfig, BaseHttpError, BaseHttpMethod } from './interface';
 
+export const DEFAULT_ERROR_STATUS = 'Unexpected Error.';
+export const DEFAULT_HTTP_ERROR_MESSAGE = 'An unknown error occurred.';
+
 export const defaultHttpArgs: BaseHttpConfig = {
   baseURL: ''
 };
@@ -47,13 +50,13 @@ class BaseHttp {
     if (!error.response) {
       return {
         status: 0,
-        statusText: 'Unexpected Error.',
+        statusText: DEFAULT_ERROR_STATUS,
         message: error.message
       };
     }
     const { response } = error;
     const res: BaseHttpResponse = await response.json();
-    const errmsg = res?.['data'] || res?.['message'] || 'An unknown error occurred.';
+    const errmsg = res?.['data'] || res?.['message'] || DEFAULT_HTTP_ERROR_MESSAGE;
     const message = typeof res === 'string' && res ? res : errmsg;
     return {
       status: response.status,
