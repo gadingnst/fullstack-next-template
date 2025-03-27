@@ -1,8 +1,0 @@
-.avatar {
-  @apply
-    flex items-center justify-center
-    transition-all duration-200
-    rounded-full mx-auto w-full max-w-[200px]
-    active:scale-95 active:shadow-none
-    hover:-translate-y-4 hover:cursor-pointer hover:shadow-fuchsia-300 hover:shadow-2xl;
-}

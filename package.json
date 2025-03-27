@@ -1,55 +1,27 @@
 {
-  "name": "@gadingnst/fullstack-next-template",
+  "name": "fullstack-next-template",
   "version": "0.1.0",
-  "private": false,
-  "author": "Sutan Gading Fadhillah Nasution <contact@gading.dev>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gadingnst/fullstack-next-template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/gadingnst/fullstack-next-template/issues"
-  },
-  "packageManager": "npm@9.7.2",
-  "engines": {
-    "node": ">=18.0.0"
-  },
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prepare": "husky",
-    "lint": "tsc --noEmit && eslint src --ignore-pattern 'src/public' --max-warnings 0",
-    "lint:fix": "tsc --noEmit && eslint src --ignore-pattern 'src/public' --fix"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@gadingnst/react-lazy-load-image-component": "^1.6.2",
-    "mongodb": "^6.12.0",
-    "next": "15.1.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.2.4"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "3.2.0",
-    "@eslint/js": "9.17.0",
-    "@svgr/webpack": "8.1.0",
-    "@types/node": "22.10.2",
-    "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.2",
-    "@types/react-lazy-load-image-component": "^1.6.4",
-    "@typescript-eslint/eslint-plugin": "8.18.0",
-    "@typescript-eslint/parser": "8.18.0",
-    "autoprefixer": "^10.4.20",
-    "clsx": "^2.1.1",
-    "eslint": "9.17.0",
-    "eslint-config-next": "15.1.0",
-    "husky": "^9.1.7",
-    "postcss": "^8.4.49",
-    "postcss-import": "^16.1.0",
-    "tailwind-merge": "^2.5.5",
-    "tailwindcss": "^3.4.16",
-    "typescript": "^5.7.2",
-    "typescript-eslint": "8.18.0",
-    "typescript-plugin-css-modules": "^5.1.0"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.4",
+    "@eslint/eslintrc": "^3"
   }
 }
