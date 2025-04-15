@@ -34,7 +34,7 @@
     "@eslint/js": "9.17.0",
     "@svgr/webpack": "8.1.0",
     "@types/node": "22.10.2",
-    "@types/react": "19.0.1",
+    "@types/react": "19.0.12",
     "@types/react-dom": "19.0.2",
     "@types/react-lazy-load-image-component": "^1.6.4",
     "@typescript-eslint/eslint-plugin": "8.28.0",
