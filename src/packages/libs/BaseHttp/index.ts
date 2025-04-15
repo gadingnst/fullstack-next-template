@@ -1,4 +1,4 @@
-import { BaseHttpResponse, BaseHttpConfig, BaseHttpError, BaseHttpMethod } from './interface';
+import { BaseHttpResponse, BaseHttpConfig, BaseHttpError, BaseHttpMethod } from './interfaces';
 
 export const DEFAULT_ERROR_STATUS = 'Unexpected Error.';
 export const DEFAULT_HTTP_ERROR_MESSAGE = 'An unknown error occurred.';

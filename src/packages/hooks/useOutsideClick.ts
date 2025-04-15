@@ -1,7 +1,4 @@
-'use client';
-
-/* eslint-disable react-hooks/exhaustive-deps */
-import { type RefObject, useCallback } from 'react';
+import { RefObject } from 'react';
 
 import useMounted from './useMounted';
 
@@ -12,14 +9,14 @@ import useMounted from './useMounted';
  * @returns {void} - void
  */
 function useOutsideClick<T extends Node>(callback: (target: HTMLElement) => void, refs: RefObject<T>[]): void {
-  const handleOutsideClick = useCallback((event: MouseEvent) => {
+  const handleOutsideClick = (event: MouseEvent) => {
     const isOutsideRefs = refs.every(ref => {
       const refElement = ref?.current;
       const isOutside = refElement && !refElement?.contains(event?.target as Node);
       return isOutside;
     });
     if (isOutsideRefs) callback(event.target as HTMLElement);
-  }, []);
+  };
   useMounted(() => {
     document.addEventListener('mousedown', handleOutsideClick);
     return () => {

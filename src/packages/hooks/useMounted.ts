@@ -1,7 +1,4 @@
-'use client';
-
-/* eslint-disable react-hooks/exhaustive-deps */
-import { type EffectCallback, useEffect } from 'react';
+import { EffectCallback, useEffect } from 'react';
 
 /**
  *
@@ -9,6 +6,7 @@ import { type EffectCallback, useEffect } from 'react';
  * @returns {void} - void
  */
 function useMounted(callback: EffectCallback): void {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(callback, []);
 }
 
