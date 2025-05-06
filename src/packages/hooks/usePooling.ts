@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { DependencyList, useCallback, useEffect, useRef } from 'react';
 
 function usePooling(callback: (stop: () => void) => void, deps: DependencyList, interval = 5000) {

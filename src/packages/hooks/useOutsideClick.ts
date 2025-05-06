@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import { RefObject } from 'react';
 
 import useMounted from './useMounted';
