@@ -1,5 +1,5 @@
 import {
-  BaseHttpResponse,
+  BaseHttpResponseJson,
   BaseHttpConfig,
   BaseHttpError,
   BaseHttpMethod
@@ -55,6 +55,11 @@ class BaseHttp {
     return response;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public getResponseJson<T = any>(res: Response): Promise<BaseHttpResponseJson<T>> {
+    return res.json();
+  }
+
   private static getHttpStatusMessage(status: number): string {
     switch (status) {
       case 400:
@@ -74,7 +79,7 @@ class BaseHttp {
     }
   }
 
-  private static extractErrorMessage(res: BaseHttpResponse, status: number): string {
+  private static extractErrorMessage(res: BaseHttpResponseJson, status: number): string {
     if (!res) return BaseHttp.getHttpStatusMessage(status);
     return res['error']?.['message'] ||
       res['error'] ||
@@ -98,7 +103,7 @@ class BaseHttp {
     let message = DEFAULT_HTTP_ERROR_MESSAGE;
 
     try {
-      const res: BaseHttpResponse = await response.json();
+      const res: BaseHttpResponseJson = await response.json();
       message = typeof res === 'string' && res ? res : BaseHttp.extractErrorMessage(res, response.status);
     } catch {
       try {
