@@ -1,15 +1,19 @@
 /* eslint-disable no-console */
 import { NextResponse } from 'next/server';
 
-class HttpError<T = any, E = string[]> extends Error {
+class HttpError<T = unknown, E = string[]> extends Error {
   constructor(code: number, errors: E, message: string, payload?: T) {
     const responseError = { code, errors, message, payload };
     super(JSON.stringify(responseError));
     Object.setPrototypeOf(this, this.constructor.prototype);
   }
 
-  public static handle(err: Error) {
+  public static logError(err: Error) {
     console.error(err);
+  }
+
+  public static handle(err: Error) {
+    HttpError.logError(err);
 
     if (err instanceof this) {
       const error = JSON.parse(err.message);

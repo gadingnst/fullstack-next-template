@@ -1,7 +1,4 @@
-'use client';
-
-/* eslint-disable react-hooks/exhaustive-deps */
-import { type EffectCallback, type DependencyList, useEffect, useRef } from 'react';
+import { EffectCallback, DependencyList, useEffect, useRef } from 'react';
 
 /**
  * React hooks that run useEffect() hooks only when the dependency changes,
@@ -15,7 +12,8 @@ function useUpdated(callback: EffectCallback, deps: DependencyList): void {
   useEffect(() => {
     if (mounted.current) return callback();
     else mounted.current = true;
-  }, deps);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [callback, ...deps]);
 }
 
 export default useUpdated;

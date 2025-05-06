@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import type { Metadata, ResolvingMetadata } from 'next';
 
 import type { NextPageProps } from '@/@types/global';
