@@ -10,7 +10,6 @@ This `starter-template` is packed with:
 - 👀 SVGR - Pre-Configured import SVG directly transform to React Component with type definitions
 - 📈 Path Alias - Import your module in `src` using `@/` prefix, and in `public` using `#/`.
 - 📏 ESLint - Find and fix problems in your code.
-- 🐶 Husky - Run scripts on your staged files before they are committed.
 - 🧩 Pre-built ***components*** to handle dynamic Lazyload, Image and SVG in `packages/components/base`.
 - ⚡️ Pre-setup ***backend things*** in `packages/server/` folders.
 - 🪄 Pre-built ***utilities*** to handle common things in backend and frontend.
