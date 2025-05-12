@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-[#0b0e14] dark:via-[#0f131a] dark:to-[#11151d] text-foreground">
+    <div className="base-container min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-[#0b0e14] dark:via-[#0f131a] dark:to-[#11151d] text-foreground">
       {/* Hero */}
       <section className="flex-1 flex flex-col items-center justify-center text-center px-8 pt-24 pb-12 gap-6">
         <Image

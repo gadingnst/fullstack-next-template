@@ -1,0 +1,4 @@
+@utility base-container {
+  max-width: 1600px;
+  @apply w-full mx-auto px-6;
+}
