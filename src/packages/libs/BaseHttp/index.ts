@@ -1,8 +1,8 @@
 import {
-  BaseHttpResponseJson,
   BaseHttpConfig,
+  BaseHttpMethod,
   BaseHttpError,
-  BaseHttpMethod
+  BaseHttpResponseJson
 } from './interfaces';
 
 export const DEFAULT_ERROR_STATUS = 'Unexpected Error.';
@@ -12,27 +12,34 @@ export const defaultHttpArgs: BaseHttpConfig = {
   baseURL: ''
 };
 
-/**
- * BaseHttp class for making HTTP requests.
- * it inherits from the native fetch API
- * --
- * usage:
- * const Http = new BaseHttp({ baseURL: API_BASE_URL });
- * try {
- *  Http.request('POST', '/api/v1/users', { body: JSON.stringify({ name: 'John Doe' }) });
- * } catch (error) {
- *  const { status, statusText, message } = await Http.getErrorResponse(error);
- *  console.error(status, statusText, message);
- * }
- */
-class BaseHttp {
+class BaseHttp<ResponseShape extends object = BaseHttpResponseJson> {
   public baseURL: string;
   public requestInit: RequestInit;
 
-  constructor(args = defaultHttpArgs) {
+  constructor(args: BaseHttpConfig = defaultHttpArgs) {
     const { baseURL, ...reqInit } = args;
     this.baseURL = baseURL;
     this.requestInit = reqInit;
+  }
+
+  public get(url: string, args?: Omit<RequestInit, 'method'>) {
+    return this.request('GET', url, args);
+  }
+
+  public post(url: string, args?: Omit<RequestInit, 'method'>) {
+    return this.request('POST', url, args);
+  }
+
+  public put(url: string, args?: Omit<RequestInit, 'method'>) {
+    return this.request('PUT', url, args);
+  }
+
+  public patch(url: string, args?: Omit<RequestInit, 'method'>) {
+    return this.request('PATCH', url, args);
+  }
+
+  public delete(url: string, args?: Omit<RequestInit, 'method'>) {
+    return this.request('DELETE', url, args);
   }
 
   public async request(method: BaseHttpMethod, url: string, args?: Omit<RequestInit, 'method'>) {
@@ -43,20 +50,23 @@ class BaseHttp {
       headers: {
         'Content-Type': 'application/json',
         ...this.requestInit.headers,
-        ...args?.headers
+        ...args?.headers,
       },
-      method
+      method,
     });
+
     if (!response.ok) {
-      const error = new Error(`HTTP (${method}) ${response.status} error. On: "${endpoint}"`) as BaseHttpError;
+      const error = new Error(
+        `HTTP (${method}) ${response.status} error. On: "${endpoint}"`
+      ) as BaseHttpError;
       error.response = response;
       throw error;
     }
     return response;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public getResponseJson<T = any>(res: Response): Promise<BaseHttpResponseJson<T>> {
+  // THE MAGIC IS HERE!
+  public async getResponseJson<T = unknown>(res: Response): Promise<ResponseShape & { [k in keyof ResponseShape]: T extends void ? ResponseShape[k] : T }> {
     return res.json();
   }
 
@@ -79,14 +89,17 @@ class BaseHttp {
     }
   }
 
-  private static extractErrorMessage(res: BaseHttpResponseJson, status: number): string {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private static extractErrorMessage(res: any, status: number): string {
     if (!res) return BaseHttp.getHttpStatusMessage(status);
-    return res['error']?.['message'] ||
+    return (
+      res['error']?.['message'] ||
       res['error'] ||
       res['data'] ||
       res['message'] ||
       res['msg'] ||
-      BaseHttp.getHttpStatusMessage(status);
+      BaseHttp.getHttpStatusMessage(status)
+    );
   }
 
   public static async getErrorResponse(err: unknown) {
@@ -103,14 +116,19 @@ class BaseHttp {
     let message = DEFAULT_HTTP_ERROR_MESSAGE;
 
     try {
-      const res: BaseHttpResponseJson = await response.json();
-      message = typeof res === 'string' && res ? res : BaseHttp.extractErrorMessage(res, response.status);
+      const res = await response.json();
+      message =
+        typeof res === 'string' && res
+          ? res
+          : BaseHttp.extractErrorMessage(res, response.status);
     } catch {
       try {
         const textResponse = await response.text();
-        message = textResponse.includes('<!DOCTYPE html>') || textResponse.includes('<html')
-          ? BaseHttp.getHttpStatusMessage(response.status)
-          : textResponse || BaseHttp.getHttpStatusMessage(response.status);
+        message =
+          textResponse.includes('<!DOCTYPE html>') ||
+          textResponse.includes('<html')
+            ? BaseHttp.getHttpStatusMessage(response.status)
+            : textResponse || BaseHttp.getHttpStatusMessage(response.status);
       } catch {
         message = BaseHttp.getHttpStatusMessage(response.status);
       }
@@ -130,5 +148,4 @@ class BaseHttp {
 }
 
 export const Http = new BaseHttp();
-
 export default BaseHttp;
