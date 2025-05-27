@@ -65,7 +65,6 @@ class BaseHttp<ResponseShape extends object = BaseHttpResponseJson> {
     return response;
   }
 
-  // THE MAGIC IS HERE!
   public async getResponseJson<T = unknown>(res: Response): Promise<ResponseShape & { [k in keyof ResponseShape]: T extends void ? ResponseShape[k] : T }> {
     return res.json();
   }
