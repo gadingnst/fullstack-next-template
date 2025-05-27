@@ -12,6 +12,19 @@ export const defaultHttpArgs: BaseHttpConfig = {
   baseURL: ''
 };
 
+/**
+ * BaseHttp class for making HTTP requests.
+ * it inherits from the native fetch API
+ * --
+ * usage:
+ * const Http = new BaseHttp({ baseURL: API_BASE_URL });
+ * try {
+ *  Http.request('POST', '/api/v1/users', { body: JSON.stringify({ name: 'John Doe' }) });
+ * } catch (error) {
+ *  const { status, statusText, message } = await Http.getErrorResponse(error);
+ *  console.error(status, statusText, message);
+ * }
+ */
 class BaseHttp<ResponseShape extends object = BaseHttpResponseJson> {
   public baseURL: string;
   public requestInit: RequestInit;
